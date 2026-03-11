@@ -464,7 +464,6 @@ export default function Footer() {
                     }}
                 >
                     <img src={startIcon} alt="startIcon" />
-                    <h4>Start</h4>
                 </div>
                 {/* -------- CREATE TAP ON FOOTER -------- */}
                 <div className="tap_container" ref={wheelTapContainer}
