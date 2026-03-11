@@ -1,42 +1,37 @@
-
+/* =========================================
+   TILE GRID — Aero Glass
+   ========================================= */
 
 .bg_tile_container {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 99999999999999999999;
-  background: #098684;
+  background: rgba(0, 0, 0, 0.3); /* Transparent dark overlay for Aero glass */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   background-size: cover;
   background-position: center;
   overflow-y: auto;
 }
 
-/* .bg_tile_container img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.04;
-  z-index: 9999999999999999999999;
-  pointer-events: none;
-} */
-
 
 .bg_tile_container .date_time {
   position: absolute;
-  font-size: 30px;
-  color: rgb(222, 215, 215);
-  margin-top: -3rem;
-  left: 0.5rem;
+  font-size: 36px;
+  color: white;
+  margin-top: -3.5rem;
+  left: 1rem;
+  font-weight: 300;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   max-height: 100svh;
-  gap: 6px;
-  padding: 4px;
+  gap: 12px;
+  padding: 12px;
   position: relative;
   margin: 0 auto;
   max-width: 1200px;
@@ -48,42 +43,55 @@
   user-select: none;
   overscroll-behavior: contain;
   overflow-y: auto;
-  
 }
 
 .grid-container::-webkit-scrollbar {
-    width: 0px;
+    width: 6px;
+}
+.grid-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
 }
 
-
 .tile {
-    min-height: 100px;
-    min-width: 100px;
-    padding: 8px;
+    min-height: 110px;
+    min-width: 110px;
+    padding: 12px;
     display: flex;
     font-weight: bold;
     cursor: pointer;
-    font-weight: lighter;
-    font-size: 14px;
-    color: #d1cfcf;
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    font-weight: 500;
+    font-size: 14.5px;
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     -webkit-user-select: none; 
     -moz-user-select: none;   
     -ms-user-select: none;    
     user-select: none;  
-  }
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
 
- .tile_name {
+.tile_name {
     position: relative;
-    font-size: 13px;
-    bottom: 2px;
-  }
+    font-size: 14px;
+    bottom: 0px;
+}
 
 .tile:hover {
-    opacity: 0.8 !important;
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px) scale(1.02);
 }
+
 .tile:active {
     cursor: grabbing;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(2px) scale(0.98);
 }
 
 
@@ -92,36 +100,32 @@
   grid-column: span 1;
   grid-row: span 1;
 }
-/* .tile.medium {
-  grid-column: span 2;
-  grid-row: span 1;
-} */
+
 .tile.large {
   grid-column: span 2 !important;
   grid-row: span 2 !important;
 }
 
- .tile_pic_container {
+.tile_pic_container {
     display: grid;
     position: absolute;
     width: 100%;
     height: 100%;
     top: 4px;
-    left: 2px;
+    left: 4px;
+}
 
-  }
-
-  .tile_pic {
+.tile_pic {
   position: absolute;
-  width: 20px;
-  opacity: 0.65;
-  right: 8px;
-  bottom: 8px;
-  
+  width: 24px;
+  opacity: 0.85;
+  right: 12px;
+  bottom: 12px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .time_icon {
-  display: grid;
+  display: flex;
   position: absolute;
   place-items: center;
   width: 100%;
@@ -130,11 +134,14 @@
   transform: translateY(-50%);
   gap: 0.5rem;
   z-index: 2;
+  justify-content: center;
 }
 
 .time_icon p {
-  color: rgb(240, 240, 240);
-  font-size: 40px;
+  color: white;
+  font-size: 42px;
+  font-weight: 300;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .switch_bg {
@@ -161,55 +168,55 @@
 
 .weather_tile_container h2 {
   position: relative;
-  font-size: 24px;
+  font-size: 28px;
   left: 5px;
+  font-weight: 300;
 }
 .weather_tile_container span {
   position: relative;
-  font-size: 13px;
+  font-size: 14px;
   left: 2px;
   bottom: 8px;
 }
 
 .weather_tile_container p {
   position: relative;
-  font-size: 12px;
+  font-size: 13px;
   bottom: 2px;
 }
 
 @media screen and (width <= 800px) {
   .time_icon p {
-  font-size: 36px;
+  font-size: 38px;
 }
 }
 
 
 @media screen and (width <= 630px) {
   .grid-container {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     top: 0;
     transform: translateY(0);
     overflow-y: auto;
     max-height: 100svh;
-    gap: 4px;
-
-
+    gap: 8px;
+    padding: 12px;
   }  
 
 
   .tile_pic {
-    width: 17px;
-    right: 6px;
+    width: 20px;
+    right: 8px;
+    bottom: 8px;
 }
 
   .tile {
     min-width: 0;
     width: 100%;
-    
   }
 
   .tile_name {
-    font-size: 13px;
+    font-size: 13.5px;
   }
 
   .bg_tile_container .date_time {
@@ -217,8 +224,6 @@
   }
 
   .time_icon p {
-  font-size: 30px;
+  font-size: 32px;
 }
 }
-
-
