@@ -1,82 +1,80 @@
+/* =========================================
+   NOTIFICATION — Aero Glass 
+   ========================================= */
+
 .noti_container {
     position: absolute;
-    width: 300px;
+    width: 320px;
     height: fit-content;
-    right: 1rem;
-    top: 1rem;
-    background: #ffffffdd;
-    border: 2px solid rgb(255, 255, 255);
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    right: 1.5rem;
+    top: 1.5rem;
+    background: var(--aero-glass-bg-strong);
+    backdrop-filter: var(--aero-blur-heavy);
+    -webkit-backdrop-filter: var(--aero-blur-heavy);
+    border: 1px solid var(--aero-glass-border);
+    border-radius: var(--aero-radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     overflow: hidden;
     z-index: 999999999999;
     opacity: 1;
     cursor: default;
-    backdrop-filter: blur(2px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.noti_container:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .noti_container .noti_icon {
     display: flex;
     position: relative;
     align-items: center;
-    gap: 6px;
-    width: 95%;
-    height: 30px;
-    margin: 0 auto;
-    margin-top: .4rem;
-    margin-bottom: .5rem;
-    padding: .4rem;
-    background: #f3f3f38f;
-
+    gap: 10px;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 8px 12px;
+    background: var(--aero-title-gradient);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 .noti_container .noti_icon img {
     position: relative;
-    width: 24px;
+    width: 20px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 .noti_container .noti_icon p {
     position: relative;
     font-size: 14px;
-    top: 1px;
-    font-weight: bold;
+    top: 0px;
+    font-weight: 600;
+    color: var(--aero-text-light);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .noti_container .noti_message {
     position: relative;
-    width: 95%;
+    width: 100%;
     height: fit-content;
-    margin: 0 auto;
-    padding: .4rem;
-    background: #f3f3f38f;
-
-    margin-bottom: .4rem;
+    padding: 12px;
+    background: transparent;
 }
 
 .noti_container .noti_message p {
-    font-size: 12px;
+    font-size: 13px;
+    color: var(--aero-text-color);
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
-/* @keyframes noti_slide_from_right {
-    0%{right: -500px; opacity: 1;}
-    8%{right: 1rem; opacity: 1;}
-    50%{right: 1rem; opacity: 1;}
-    92%{right: 1rem; opacity: 1;}
-    100%{right: -500px;}
-}
-
-@keyframes noti_slide_from_top {
-    0%{top: -500px; opacity: 1;}
-    8%{top: 1rem; opacity: 1;}
-    50%{top: 1rem; opacity: 1;}
-    92%{top: 1rem; opacity: 1;}
-    100%{top: -500px;}
-} */
-
-@media screen and (width <= 500px){
+@media screen and (max-width: 500px){
     .noti_container {
         width: 90%;
         left: 50%;
+        right: auto;
         opacity: 1;
         transform: translateX(-50%);
+        top: 1rem;
     }
 }
