@@ -1,51 +1,40 @@
-
+/* =========================================
+   APP ICONS (FULLSCREEN) — Aero Glass
+   ========================================= */
 
 /* ── Tokens ───────────────────────────────────────────────────────────── */
 :root {
-  --icon-bg-fade: #f9f1f12c;
-  --bg:           #008080;   
-  --surface:      rgba(255,255,255,0.07);
-  --surface-2:    rgba(255,255,255,0.11);
-  --surface-3:    rgba(255,255,255,0.16);
-  --border-light: rgba(255,255,255,0.14);
-  --border-dark:  rgba(0,0,0,0.5);
-  --accent:       rgba(255, 255, 255, 0.393);
-  --accent-soft:  rgba(255,255,255,0.08);
-  --text:         rgba(255, 255, 255, 0.973);
-  --text-muted:   rgba(0, 0, 0, 0.806);
-  --dash-color:   rgb(242, 246, 244);
-  --white:        rgba(255,255,255,0.95);
-  --raise:        inset -2px -2px 0 rgba(0,0,0,0.35),
-                  inset  1px  1px 0 rgba(255,255,255,0.18),
-                  inset -1px -1px 0 rgba(0,0,0,0.2),
-                  inset  2px  2px 0 rgba(255,255,255,0.08);
-  --sink:         inset  2px  2px 0 rgba(0,0,0,0.35),
-                  inset -1px -1px 0 rgba(255,255,255,0.18),
-                  inset  1px  1px 0 rgba(0,0,0,0.2),
-                  inset -2px -2px 0 rgba(255,255,255,0.08);
+  --icon-bg-fade: rgba(255, 255, 255, 0.15);
+  --bg:           rgba(40, 100, 180, 0.15); /* Light blue Aero tint */
+  --surface:      rgba(255,255,255,0.25);
+  --surface-2:    rgba(255,255,255,0.4);
+  --surface-3:    rgba(255,255,255,0.6);
+  --border-light: rgba(255,255,255,0.4);
+  --border-dark:  rgba(0,0,0,0.15);
+  --text:         #111;
+  --text-muted:   #444;
+  --aero-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-/* ── Container — fullscreen, black glass ──────────────────────────────── */
+/* ── Container — fullscreen, glass ──────────────────────────────── */
 .appicon_container {
   position: fixed;
   inset: 0;
   width: 100svw;
   height: 100svh;
-  background: var(--bg);
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
+  background: var(--bg) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   z-index: 999999999999;
   display: flex;
   flex-direction: column;
-  font-size: 12px;
-  background: #2e251830 !important;
+  font-size: 13px;
 }
 
 /* ── Shared panel surface ─────────────────────────────────────────────── */
 .toolbar,
 .body_area,
 .statusbar {
-  background: var(--surface);
   width: 100%;
   box-sizing: border-box;
 }
@@ -55,49 +44,55 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 14px 20px 10px;
-  gap: 8px;
+  padding: 16px 20px 12px;
+  gap: 12px;
   flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 .toolbar_info {
-  font-size: 11px;
+  font-size: 12.5px;
   color: var(--text-muted);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 /* ── Search ───────────────────────────────────────────────────────────── */
 .search_wrap {
   display: flex;
   align-items: center;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid var(--border-light);
-  height: 28px;
-  padding: 0 8px;
-  gap: 6px;
-  margin-top: 1rem;
-  width: 260px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border-dark);
+  height: 32px;
+  padding: 0 10px;
+  gap: 8px;
+  margin-top: 0.5rem;
+  width: 280px;
   box-sizing: border-box;
-  border-radius: 1px;
-  transition: border-color 0.15s, background 0.15s;
+  border-radius: 16px; /* Rounded pill search */
+  transition: all 0.2s ease;
   animation: visbleApps 0.3s ease-in-out;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 @keyframes visbleApps {
-  from { opacity: 0;  }
-  to   { opacity: 1;  }
-
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 .search_wrap:focus-within {
-  background: rgba(255,255,255,0.11);
-  border-color: rgba(255,255,255,0.28);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(60, 120, 210, 0.6);
+  box-shadow: 0 0 0 2px rgba(60, 120, 210, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .search_icon {
   width: 14px;
   height: 14px;
-  color: var(--text-muted);
+  color: #666;
   flex-shrink: 0;
 }
 
@@ -106,38 +101,35 @@
   border: none;
   outline: none;
   background: transparent;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text);
   padding: 0;
   min-width: 0;
 }
 
-.search_input::placeholder { color: rgba(238, 234, 234, 0.626); }
+.search_input::placeholder { color: #888; }
 
 .search_clear {
   border: none;
   background: none;
   cursor: pointer;
-  color: var(--text-muted);
+  color: #888;
   padding: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 1px;
-  transition: color 0.1s, background 0.1s;
+  border-radius: 50%;
+  transition: all 0.15s;
 }
 
-.search_clear:hover { color: var(--text); background: var(--surface-2); }
+.search_clear:hover { color: #333; background: rgba(0, 0, 0, 0.1); }
 
 /* ── Body ─────────────────────────────────────────────────────────────── */
 .body_area {
   flex: 1;
   position: relative;
   overflow: hidden;
-  /* dot-grid watermark */
-  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
-  background-color: var(--surface);
+  background-color: transparent;
 }
 
 /* ── Page arrows ──────────────────────────────────────────────────────── */
@@ -146,23 +138,30 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 50;
-  width: 28px;
-  height: 50px;
-  background: transparent;
-  border: none;
+  width: 40px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
   cursor: pointer;
-  color: white;
+  color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   opacity: 1;
-  transition: background 0.1s, color 0.1s;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), var(--aero-highlight);
+  backdrop-filter: blur(8px);
 }
 
-.page_arrow:hover { background: rgba(232, 231, 231, 0.258); color: rgb(29, 27, 27); }
-.page_arrow_left   { left: 6px; }
-.page_arrow_right  { right: 6px; }
+.page_arrow:hover { 
+    background: rgba(255, 255, 255, 0.5); 
+    color: #000; 
+    transform: translateY(-50%) scale(1.05);
+}
+.page_arrow_left   { left: 16px; }
+.page_arrow_right  { right: 16px; }
 
 /* ── Grid wrapper ─────────────────────────────────────────────────────── */
 .grid_wrap {
@@ -172,124 +171,121 @@
   align-items: flex-start;
   justify-content: center;
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.12) transparent;
 }
+.grid_wrap::-webkit-scrollbar { width: 8px; }
+.grid_wrap::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2); border-radius: 4px; }
 
-/* ── Icon grid — fixed px cols, no mismatch ──────────────────────────── */
+/* ── Icon grid ───────────────────────────────────────────────────────── */
 .appicon_grid {
   display: grid;
   max-width: 1000px;
   grid-template-columns: repeat(auto-fill, 120px);
   grid-auto-rows: 100px;
-  gap: 4px 8px;
-  padding: 20px 48px;
+  gap: 12px 16px;
+  padding: 24px 48px;
   align-content: start;
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
-  animation: visbleApps 0.4s ease-in-out;
+  animation: visbleApps 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.appicon_grid.searching { padding-top: 16px; }
+.appicon_grid.searching { padding-top: 24px; }
 
-/* ── Icon — no border, no bg ─────────────────────────────────────────── */
+/* ── Icon ─────────────────────────────────────────────────────────── */
 .appicon_icon {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 8px;
-  width: 88px;
-  height: 96px;
+  padding-top: 10px;
+  width: 96px;
+  height: 104px;
   cursor: pointer;
   text-align: center;
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
   box-sizing: border-box;
-  gap: 12px;
-  border-radius: 2px;
+  gap: 8px;
+  border-radius: 8px;
   outline: none;
   background: transparent;
-  transition: background 0.12s;
-
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
 }
 
-/* dashed only on hover */
 .appicon_icon:hover {
-  outline: 1.5px dashed var(--dash-color);
-  outline-offset: -2px;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), var(--aero-highlight);
+  transform: translateY(-2px);
 }
 
-.appicon_icon:focus-visible {
-  outline: 1.5px dashed var(--dash-color);
-  outline-offset: -2px;
+.appicon_icon:active { 
+    cursor: grabbing; 
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(0);
 }
-
-.appicon_icon:active { cursor: grabbing; }
 
 /* ── Image tile ───────────────────────────────────────────────────────── */
 .appicon_img_wrap {
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 5px;
   box-sizing: border-box;
-  transition: background 0.12s, box-shadow 0.12s;
+  transition: all 0.2s ease;
 }
 
 
 .appicon_icon img {
   position: relative;
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
   pointer-events: none;
   display: block;
-  padding: 10px;
-  background: var(--icon-bg-fade);
-  border-radius: 4px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+  transition: transform 0.2s ease;
+}
+
+.appicon_icon:hover img {
+    transform: scale(1.08);
 }
 
 /* ── Label ────────────────────────────────────────────────────────────── */
 .appicon_icon p {
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 12.5px;
+  font-weight: 600;
   line-height: 1.25;
   color: var(--text);
   pointer-events: none;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 84px;
+  max-width: 88px;
   text-align: center;
   margin: 0;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8), 0 1px 1px rgba(0,0,0,0.1);
 }
 
 /* ── Dragging source ──────────────────────────────────────────────────── */
 .appicon_icon.is-dragging {
-  outline: 1.5px dashed var(--dash-color);
-  outline-offset: -2px;
+  opacity: 0.5;
 }
 
-/* ── Ghost — exact same fixed size as cell ───────────────────────────── */
+/* ── Ghost ──────────────────────────────────────────────────────────── */
 .appicon_icon.is-ghost {
   cursor: grabbing;
-  width: 88px;
-  height: 96px;
-  background: rgba(255,255,255,0.07);
-  outline: 1.5px dashed var(--dash-color);
-  outline-offset: -2px;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
-}
-
-.appicon_icon.is-ghost .appicon_img_wrap {
-  background: var(--surface-3);
-  
+  width: 96px;
+  height: 104px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
 }
 
 .appicon_icon.is-ghost p { color: var(--text); font-weight: 600; }
@@ -300,16 +296,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 52px 24px;
+  gap: 12px;
+  padding: 60px 24px;
   color: var(--text-muted);
 }
 
 .no_results p {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   margin: 0;
   color: var(--text);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 /* ── Status bar ───────────────────────────────────────────────────────── */
@@ -317,22 +314,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 12px;
+  padding: 8px 16px;
   flex-shrink: 0;
-  gap: 10px;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.4);
   border-top: 1px solid var(--border-light);
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
 }
 
 .statusbar_text {
-  font-size: 11px;
-  color: var(--text-muted);
-  box-shadow: var(--sink);
-  padding: 2px 8px;
+  font-size: 12px;
+  color: var(--text);
+  padding: 4px 10px;
   text-align: left;
-  background: var(--surface);
-  min-width: 90px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  min-width: 100px;
   white-space: nowrap;
   letter-spacing: 0.01em;
+  font-weight: 500;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .statusbar_right { text-align: right; }
@@ -340,59 +342,63 @@
 /* ── Page dots ────────────────────────────────────────────────────────── */
 .page_dots {
   display: flex;
-  gap: 5px;
+  gap: 8px;
   align-items: center;
 }
 
 .page_dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 1px;
-  border: none;
-  background: var(--surface-2);
-  box-shadow: var(--raise);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   cursor: pointer;
   padding: 0;
-  transition: background 0.15s, box-shadow 0.1s;
+  transition: all 0.2s;
 }
 
-.page_dot:hover  { background: var(--surface-3); }
-.page_dot.active { background: rgba(255,255,255,0.75); box-shadow: var(--sink); }
+.page_dot:hover  { 
+    background: rgba(255, 255, 255, 0.8); 
+    transform: scale(1.1);
+}
+.page_dot.active { 
+    background: rgba(60, 120, 210, 0.8); 
+    border-color: rgba(60, 120, 210, 1);
+    box-shadow: 0 1px 3px rgba(60, 120, 210, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
 
 /* ── Responsive ───────────────────────────────────────────────────────── */
 @media screen and (max-width: 640px) {
-  .toolbar   { border-top: none; }
-  .statusbar { border-bottom: none; }
-
   .appicon_grid {
     grid-template-columns: repeat(auto-fill, 92px);
-    grid-auto-rows: 88px;
-    gap: 6px;
-    padding: 12px 16px;
+    grid-auto-rows: 96px;
+    gap: 8px 10px;
+    padding: 16px;
   }
 
   .appicon_icon     {
-     width: 76px; 
-     height: 88px; 
+     width: 84px; 
+     height: 96px; 
     }
 
   .appicon_icon.is-ghost { 
-    width: 76px; 
-    height: 88px; 
-  
+    width: 84px; 
+    height: 96px; 
   }
+
   .appicon_img_wrap { 
-    width: 44px; 
-    height: 44px; 
+    width: 48px; 
+    height: 48px; 
   }
   .appicon_icon img { 
-    width: 50px; 
-    height: 50px; 
+    width: 48px; 
+    height: 48px; 
   }
   .page_arrow       { 
     display: none; 
   }
   .search_wrap      { 
-    width: 200px; 
+    width: 220px; 
   }
 }

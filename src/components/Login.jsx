@@ -122,7 +122,7 @@ function Login() {
         <div className='login_container'>
             
             <div className="tap_login" style={{backgroundColor: themeDragBar}}>
-                <p>Welcome to Windows</p>
+                <p>Welcome</p>
                 <div className="tap_button">
                     <div className="login_question"
                         onClick={handleMarioSizeUp}
