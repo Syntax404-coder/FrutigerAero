@@ -7,19 +7,13 @@ import '../css/Login.css'
 
 function Login() {
 
-    const [ username, setUsername ] = useState('admin')
-    const [ password, setPassword ] = useState('1234')
     const [ sizeUp, setSizeUp ] = useState(1)
 
     const { setLogin, themeDragBar } = useContext(UseContext);
 
     function handleLogin(e) {
         e.preventDefault()
-
-        if(username === 'admin' && password === '1234'){
-            setLogin(false)
-        }
-        return;
+        setLogin(false)
     }
 
     function handleMarioSizeUp() {
@@ -135,18 +129,7 @@ function Login() {
                 <img src={login_icon} alt="login_icon" />
             </div>
             <div className="login_input">
-                <p className='login_des'>Type a user name and password to log on to Windows.</p>
-                    <label>User name:</label>
-                    <input type="text" maxLength={20} 
-                      onChange={() => null}
-                      value={username} 
-                    />
-                    <br />
-                    <label style={{marginRight: '17px'}}>Password:</label>
-                    <input type="password"  maxLength={20} 
-                      onChange={() => null}
-                      value={password} 
-                    />
+                <p className='login_des'>Click OK to log on to Windows.</p>
             </div>
             <div className="login_button">
                 <div className="login_btn"
