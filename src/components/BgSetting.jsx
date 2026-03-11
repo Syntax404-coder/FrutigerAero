@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { SketchPicker } from 'react-color';
 import settingIcon from '../assets/setting.png'
 import bgPic from '../assets/bgpc.png'
-import bg0 from '../assets/bg0.png'
+import WindowsBg from '../assets/Windows.jpg'
 import bg1 from '../assets/bg1.png'
 import bg2 from '../assets/bg2.jpg'
 import bg3 from '../assets/bg3.jpg'
@@ -81,7 +81,7 @@ function BgSetting() {
 
 
       const colorOptions = [
-        { value: 1, label: '(None)', color: '#098684', image: bg0, barColor: '#14045c'},
+        { value: 1, label: 'Windows Vista Default', color: '#1e5799', image: WindowsBg, barColor: '#14045c'},
         { value: 13, label: 'Choose your favorite color', color: userPickedColor, image: userPickedColor, barColor: userPickedColor},
         { value: 2, label: 'Purple Summer', color: '#3F4565', image: bg1, barColor: '#3F4565'},
         { value: 3, label: 'Matt Blue', color: '#456EA6', image: bg2, barColor: '#456EA6'},

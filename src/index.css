@@ -100,13 +100,10 @@ body {
     line-height: 1.5;
     touch-action: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1e5799;
-    background: linear-gradient(135deg, #1e5799 0%, #7db9e8 50%, #52a352 100%);
-    height: 100svh;
+    background: url('./assets/Windows.jpg') no-repeat center center fixed;
     background-size: cover;
     background-position: center;
     overflow: hidden;
-    background-repeat: no-repeat;
     color: var(--aero-text-color);
 }
 
@@ -172,14 +169,15 @@ select {
 .footer {
     display: flex;
     position: fixed;
-    height: 40px;
+    height: 38px;
     width: 100%;
     bottom: 0;
-    background: var(--aero-taskbar-bg);
+    /* Lighter semi-translucent frosted glass */
+    background: linear-gradient(180deg, rgba(220, 230, 240, 0.15) 0%, rgba(180, 190, 210, 0.25) 48%, rgba(60, 70, 90, 0.4) 50%, rgba(20, 30, 50, 0.5) 100%);
     backdrop-filter: var(--aero-blur-heavy);
     -webkit-backdrop-filter: var(--aero-blur-heavy);
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     align-items: center;
     z-index: 999999999;
 }
@@ -192,7 +190,7 @@ select {
     left: 0;
     width: 100%;
     height: 50%;
-    background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.02) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.05) 100%);
     pointer-events: none;
     z-index: 1;
 }
@@ -200,16 +198,16 @@ select {
 .footer .btn_start {
     display: flex;
     position: absolute;
-    bottom: -2px; /* Protrudes outside the taskbar */
-    left: 6px;
+    bottom: -5px; /* Protrudes evenly */
+    left: 2px;
     height: 48px;
     width: 48px;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background: var(--aero-start-gradient);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), inset 0 2px 6px rgba(255, 255, 255, 0.9), inset 0 -6px 12px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), inset 0 2px 6px rgba(255, 255, 255, 0.8), inset 0 -6px 12px rgba(0,0,0,0.7);
     cursor: pointer;
     transition: all 0.15s ease;
     -webkit-user-select: none;
@@ -500,15 +498,16 @@ select {
     position: relative;
     align-items: center;
     gap: 5px;
-    height: 30px;
-    max-width: 180px;
+    height: 32px;
+    max-width: 170px;
     min-width: 30px;
-    width: 200px;
+    width: 170px;
     padding: 0px 8px;
     cursor: default;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: var(--aero-radius-sm);
+    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 48%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0,0,0,0.2);
     transition: all 0.15s ease;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -518,8 +517,15 @@ select {
 }
 
 .start_tap:hover {
-    background: rgba(255, 255, 255, 0.22);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 48%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.25) 100%);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.start_tap.active {
+    background: linear-gradient(180deg, rgba(150,150,150,0.3) 0%, rgba(100,100,100,0.3) 48%, rgba(50,50,50,0.4) 50%, rgba(100,100,100,0.5) 100%);
+    border-color: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255,255,255,0.2);
 }
 
 .start_tap p {

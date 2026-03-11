@@ -38,10 +38,7 @@ function Login() {
         if (localtheme && localbg) {
           bodyBG.style.backgroundColor = localtheme
           sectionBG.style.backgroundColor = localtheme
-          bodyBG.style.backgroundImage = `url(${bodyBG})`
-        } else {
-          bodyBG.style.backgroundColor = '#098684'
-          sectionBG.style.backgroundColor = '#098684'
+          bodyBG.style.backgroundImage = `url(${localbg})`
         }
       
     },[])

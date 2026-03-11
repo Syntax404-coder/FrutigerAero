@@ -46,11 +46,13 @@ import layer from '../../assets/layer.png'
 
 // style function for bg tap
 export function StyleHide(index, tap, ObjectState) {
-  const boxshadowstyleTrue = 'inset 1px 1px #000, 1px 1px #ffffffdd';
-  const bgStyleTrue = '#dddcdc';
+  const boxshadowstyleTrue = 'inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255,255,255,0.2)';
+  const bgStyleTrue = 'linear-gradient(180deg, rgba(150,150,150,0.3) 0%, rgba(100,100,100,0.3) 48%, rgba(50,50,50,0.4) 50%, rgba(100,100,100,0.5) 100%)';
+  const borderTrue = '1px solid rgba(0, 0, 0, 0.5)';
 
-  const boxshadowstyleFalse = 'inset 1px 1px #ffffffdd, 1.5px 1.5px #000';
-  const bgStyleFalse = '#b3b2b2';
+  const boxshadowstyleFalse = 'inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0,0,0,0.2)';
+  const bgStyleFalse = 'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 48%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%)';
+  const borderFalse = '1px solid rgba(255, 255, 255, 0.2)';
 
   const setState = ObjectState();
 
@@ -64,8 +66,8 @@ export function StyleHide(index, tap, ObjectState) {
 
   if (foundItem) {
     return foundItem.usestate.focusItem
-      ? { boxShadow: boxshadowstyleTrue, background: bgStyleTrue }
-      : { boxShadow: boxshadowstyleFalse, background: bgStyleFalse };
+      ? { boxShadow: boxshadowstyleTrue, background: bgStyleTrue, border: borderTrue }
+      : { boxShadow: boxshadowstyleFalse, background: bgStyleFalse, border: borderFalse };
   }
 
   return {};
@@ -256,7 +258,7 @@ export function handleDoubleClickPhotoOpenMobile(name, setCurrentPhoto, lastTapT
   }
 
 // click to open links
-export function handleDoubleClickiframe(name, setOpenProjectExpand, setProjectUrl, setBackTrackIe, setForwardTrackIe) {
+export function handleDoubleClickiframe(name, setOpenProjectExpand, setProjectUrl, setBackTrackIe) {
 
 
   switch(name) {
@@ -361,7 +363,7 @@ export function handleDoubleClickEnterLink(name, handleshow) {
 }
 
 
-export function handleDoubleTapEnterMobile(name, lastTapTime, setLastTapTime, setOpenProjectExpand, setProjectUrl) {
+export function handleDoubleTapEnterMobile(name, lastTapTime, setLastTapTime) {
 const now = Date.now();
 if (now - lastTapTime < 300) {
   switch(name) {
