@@ -1,15 +1,18 @@
-/* ------------ Folders ---------------- */
+/* =========================================
+   MSN — Aero Glass Window
+   ========================================= */
 
 .folder_folder-MSN {
     display: none;
     position: fixed;
     min-width: 340px;
     min-height: 400px;
-    background: #c5c4c4;
-    border: 2px solid white;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    outline: 1px solid white;
+    background: var(--aero-glass-bg);
+    backdrop-filter: var(--aero-blur);
+    -webkit-backdrop-filter: var(--aero-blur);
+    border: 1px solid var(--aero-glass-border);
+    border-radius: var(--aero-radius);
+    box-shadow: var(--aero-shadow);
     overflow: hidden;
     resize: both;
 }
@@ -43,11 +46,13 @@
 .folder_folder-MSN .folder_dragbar-MSN {
    display: flex;
    position: relative;
-   height: 24px;
+   height: 30px;
    width: 100%;
-   margin-bottom: 1px;
+   background: var(--aero-title-gradient);
+   border-radius: var(--aero-radius) var(--aero-radius) 0 0;
    align-items: center;
    justify-content: space-between;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -57,101 +62,123 @@
 .folder_barname-MSN img {
     position: relative;
     width: 16px;
-    top: 3px;
-    margin-left: 5px;
+    top: 1px;
+    margin-left: 8px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 
 
 .folder_barname-MSN span {
     position: relative;
-    font-size: 15px;
-    color: white;
-    margin-left: 5px;
+    font-size: 13px;
+    color: var(--aero-text-light);
+    margin-left: 6px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
 }
 
 .folder_folder-MSN .folder_barbtn-MSN {
     display: flex;
     position: relative;
-    margin-right: 4px;
-    gap: 2px;
+    margin-right: 6px;
+    gap: 3px;
 }
 
 .folder_barbtn-MSN div {
-    width: 17px;
-    height: 17px;
-    background: #c9c9c9;
-    font-weight: bold;
-    border: 1px solid black;
-    border-top-color: rgb(198, 198, 198);border-left-color: rgb(198, 198, 198);
-    box-shadow: inset 1px 1px #ffffff, 1px 1px #000000dd;
-    cursor: default;
+    width: 22px;
+    height: 22px;
+    background: var(--aero-btn-gradient);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.12s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    font-weight: normal;
+}
+
+.folder_barbtn-MSN div:hover {
+    background: var(--aero-btn-hover);
 }
 
 .folder_barbtn-MSN div:not(.expand-MSN):active {
-    border-top-color: black;border-left-color: black;
-    border-bottom-color: white;border-right-color: white;
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .folder_barbtn-MSN .x-MSN {
     position: relative;
     text-align: center;
-    font-size: 18px;
-    bottom: 5px;
+    font-size: 14px;
+    bottom: 0;
+    color: white;
+    background: var(--aero-close-bg);
+    border-color: rgba(180, 60, 60, 0.4);
+}
+
+.folder_barbtn-MSN .x-MSN:hover {
+    background: var(--aero-close-hover);
 }
 
 /* support only safari */
 @supports (-webkit-touch-callout: none) {
     .folder_barbtn-MSN .x-MSN {
-        position: relative;
-        bottom: 7px; 
-        left: 1.2px !important;
+        bottom: 0px; 
+        left: 0px;
     }
 }
 
 .folder_barbtn-MSN .dash-MSN {
     position: relative;
-    width: 8px;
-    top: 11px;
+    width: 10px;
+    top: 0;
     margin: 0 auto;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--aero-text-color);
 }
 .folder_barbtn-MSN .expand-MSN {
     position: relative;
     width: 10px;
     height: 10px;
-    border-top: 2px solid black;
-    border-left-color: black;
+    border: 1px solid var(--aero-text-color);
+    border-top: 2px solid var(--aero-text-color);
     box-shadow: none;
     margin: 0 auto;
-    top: 3px;
+    top: 0;
     z-index: 2;
+    background: transparent;
+    border-radius: 1px;
 }
 
 .folder_barbtn-MSN .expand-MSN.full {
     position: relative;
     width: 8px;
     height: 8px;
-    border-top: 2px solid black;
-    border-left-color: black;
+    border: 1px solid var(--aero-text-color);
+    border-top: 2px solid var(--aero-text-color);
     box-shadow: none;
     margin: 0 auto;
-    top: 5px;
-    right: 2px;
+    top: 1px;
+    right: 1px;
     z-index: 1;
+    background: transparent;
+    border-radius: 1px;
 }
 
 .folder_barbtn-MSN .expand_2-MSN {
     position: relative;
     width: 8px;
     height: 8px;
-    border-top: 2px solid black;
-    border-left-color: black;
+    border: 1px solid var(--aero-text-color);
+    border-top: 2px solid var(--aero-text-color);
     box-shadow: none;
     margin: 0 auto;
-    bottom: 6px;
-    left: 1.5px;
-
+    bottom: 5px;
+    left: 1px;
+    background: transparent;
+    border-radius: 1px;
 }
 .folder_folder-MSN .file_edit_container-MSN {
     display: flex;
@@ -159,9 +186,10 @@
     top: 2px;
     left: 2px;
     gap: 5px;
-    font-size: 15px;
+    font-size: 12.5px;
     padding-left: 10px;
     cursor: default;
+    color: var(--aero-text-color);
 }
 
 .file_edit_container-MSN span {
@@ -170,14 +198,13 @@
 
 .folder_folder-MSN .folder_conten-MSN {
     position: relative;
-    width: calc(100% - 6px);
+    width: calc(100% - 8px);
     height: 235px;
-    border: 1px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--aero-radius-sm);
     margin: 0 auto;
-    margin-top: 2px;
-    background: rgb(255, 255, 255);
+    margin-top: 3px;
+    background: rgba(255, 255, 255, 0.85);
     overflow: hidden;
     padding-left: .4rem;
     padding-top: .2rem;
@@ -188,7 +215,7 @@
 .folder_folder-MSN .btm_bar_container-MSN {
     display: flex;
     gap: 5px;
-    width: calc(100% - 6px);
+    width: calc(100% - 8px);
     justify-content: space-between;
     margin: 0 auto;
     margin-top: 4px;
@@ -197,31 +224,31 @@
 
 .btm_bar_container-MSN .object_bar-MSN {
     width: 80%;
-    border: 1px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.3);
 }
 .btm_bar_container-MSN .size_bar-MSN {
     width: 55%;
-    border: 1px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .btm_bar_container-MSN p {
     position: relative;
-    font-size: 14px;
+    font-size: 11.5px;
     padding-top: 2px;
-    margin-left: 2px;
+    margin-left: 4px;
+    color: var(--aero-text-color);
 }
 
 .folder_content-MSN {
     position: relative;
     width: calc(100% - 20px);
     height: calc(100% - 225px);
-    border: 2px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: var(--aero-radius-sm);
     background: #ffffff;
     margin: 0 auto;
     margin-top: 2px;
@@ -229,11 +256,12 @@
     overflow-y: auto;
     overflow-x: hidden;
     text-wrap: wrap;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .folder_content-MSN p {
-    font-size: 14px;
-    letter-spacing: .5px;
+    font-size: 13px;
+    letter-spacing: .2px;
 }
 
 .folder_content-MSN span {
@@ -245,71 +273,82 @@
     align-items: center;
     position: relative;
     width: calc(100% - 20px);
-    height: 40px;
+    height: 48px;
     margin: 0 auto;
-    border: 3px groove rgb(236, 234, 234);
-    border-left: none;
-    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0 4px;
     margin-top: 5px;
-    cursor: pointer;
+    cursor: default;
 }
 
 .groove_div .chat_name_msn_div {
     display: flex;
     position: relative;
-    height: 30px;
-    width: 34px;
-    border: 2px solid white;
-    border-right-color: black;
-    border-bottom-color: black;
+    height: 38px;
+    width: 42px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.5);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    
+    transition: all 0.12s ease;
+    cursor: pointer;
 }
 
 .activate_bot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    width: 72px;
-    padding: 1px 0px;
-    right: 0rem;
-    border: 2px solid white;
-    border-right-color: black;
-    border-bottom-color: black;
-    color: grey;
-    
-    
+    width: 80px;
+    height: 26px;
+    right: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--aero-radius-sm);
+    color: #666;
+    background: var(--aero-btn-gradient);
+    cursor: pointer;
+    transition: all 0.12s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .activate_bot.active {
-    border: 2px solid black;
-    border-right-color: white;
-    border-bottom-color: white;  
-    color: black;
+    border: 1px solid rgba(60, 120, 210, 0.6);
+    background: rgba(60, 120, 210, 0.1);
+    color: #2060c0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .activate_bot span {
-    font-size: 13px;
+    font-size: 11.5px;
     position: relative;
 }
 
+.groove_div .chat_name_msn_div:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(60, 120, 210, 0.5);
+}
+
 .groove_div .chat_name_msn_div:active {
-    border: 2px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    background: rgba(60, 120, 210, 0.2);
+    border-color: rgba(60, 120, 210, 0.6);
 }
 
 .groove_div .chat_name_msn_div img {
     position: relative;
     width: 100%;
+    border-radius: 3px;
+    object-fit: cover;
 }
 
 .groove_div span {
     position: relative;
-    font-size: 13px;
-    padding-left: 8px;
-    top: 1px;
+    font-size: 12.5px;
+    padding-left: 10px;
+    color: var(--aero-text-color);
 }
 
 .chat_to_div {
@@ -323,8 +362,9 @@
 .chat_to_div span {
     position: relative;
     top: 1px;
-    font-size: 13px;
+    font-size: 11.5px;
     padding-left: 1px;
+    color: var(--aero-text-color);
 }
 
 .enter_text_div {
@@ -333,8 +373,8 @@
     width: calc(100% - 20px);
     height: 60px;
     margin: 0 auto;
-    margin-top: .7rem;
-    gap: 4px;
+    margin-top: .5rem;
+    gap: 6px;
     
 }
 
@@ -342,50 +382,64 @@
     position: relative;
     height: 100%;
     width: 80%;
-    border: 2px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     background: #ffffff;
     resize: none;
-    font-size: 13px;
-    border-radius: 0;
-    padding-left: 4px;
-    padding-top: 3px;
+    font-size: 12.5px;
+    border-radius: var(--aero-radius-sm);
+    padding: 6px;
+    color: var(--aero-text-color);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: all 0.15s ease;
 }
+
+.enter_text_div textarea:focus {
+    border-color: rgba(60, 120, 210, 0.5);
+    box-shadow: 0 0 0 2px rgba(60, 120, 210, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.06);
+    outline: none;
+}
+
 
 .enter_text_div button {
     position: relative;
     height: 100%;
     width: 20%;
-    border: 2px solid white;
-    border-right-color: black;
-    border-bottom-color: black;
-    background: #c5c4c4;
-    top: 1px;
-    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--aero-radius-sm);
+    background: var(--aero-btn-gradient);
+    color: var(--aero-text-color);
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.enter_text_div button:hover {
+    background: var(--aero-btn-hover);
 }
 
 .enter_text_div button:active {
-    border: 2px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .status_div {
+    display: flex;
+    align-items: center;
     position: relative;
-    height: 22px;
-    width: calc(100% - 19px);
-    border: 2px solid rgb(125, 116, 116);
-    border-right-color: #ebe9e9;
-    border-bottom-color: #ebe9e9;
+    height: 24px;
+    width: calc(100% - 20px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--aero-radius-sm);
+    background: rgba(255, 255, 255, 0.4);
     margin: 0 auto;
     top: 8px;
 }
 
 .status_div p {
-    font-size: 13px;
-    padding-left: 2px;
-    color: rgb(50, 49, 49);
+    font-size: 11.5px;
+    padding-left: 6px;
+    color: #555;
 }
 
 .Username_input_div_active {
@@ -395,7 +449,9 @@
     top: 1.53rem;
     width: 100%;
     height: 100%;
-    background: #09090970;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     z-index: 98;
 }
 
@@ -407,17 +463,20 @@
     position: relative;
     width: 280px;
     height: 160px;
-    background: #c5c4c4;
-    border: 1px solid white;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    outline: 1px solid white;
+    background: var(--aero-glass-bg-strong);
+    border: 1px solid var(--aero-glass-border);
+    border-radius: var(--aero-radius);
+    box-shadow: var(--aero-shadow);
     overflow: hidden;
 }
 
 .Username_input_div_active .form_banner {
-   width: calc(100% - 20px);
-   height: 25px;
+    width: 100%;
+    height: 28px !important;
+    background: var(--aero-title-gradient);
+    border-radius: var(--aero-radius) var(--aero-radius) 0 0;
+    align-items: center;
+    padding-left: 8px;
 }
 
 .form_banner {
@@ -429,49 +488,58 @@
 }
 
 .form_banner img {
-    width: 21px;
+    width: 16px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 .form_banner .username_text_banner {
     position: relative;
-    color: white;
+    color: var(--aero-text-light);
     font-size: 13px;
-    padding-left: 2px;
+    padding-left: 6px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .form_banner .close_form_banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    width: 15px;
-    height: 15px;
-    border: 2px solid white;
-    border-right-color: black;
-    border-bottom-color: black;
-    background: #c5c4c4;
-    text-align: center;
-    right: 3px;
-    cursor: default;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(180, 60, 60, 0.4);
+    border-radius: 4px;
+    background: var(--aero-close-bg);
+    right: 4px;
+    cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: all 0.12s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.form_banner .close_form_banner:hover {
+    background: var(--aero-close-hover);
 }
 
 .form_banner .close_form_banner:active {
-    border: 1px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .form_banner .close_form_banner p {
     position: relative;
-    bottom: 7px;
-    left: 0.5px;
-    font-size: 16px;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    color: white;
 }
+
 @supports (-webkit-touch-callout: none) {
     .form_banner .close_form_banner p {
-        bottom: 7px;
-        left: 0.5px;
+        bottom: 0;
+        left: 0;
     }
 }
 
@@ -479,7 +547,7 @@
     display: grid;
     position: relative;
     width: 85%;
-    top: 1.8rem;
+    top: 1.2rem;
     margin: 0 auto;
 }
 
@@ -487,19 +555,25 @@
     position: relative;
     font-size: 12px;
     text-align: start;
-    padding-bottom: 2px;
-    left: 1px;
+    padding-bottom: 4px;
+    left: 0;
+    color: var(--aero-text-color);
 }
 
 .Username_input_div_active input {
     width: 100%;
-    height: 25px;
-    font-size: 13px;
-    padding-left: 4px;
-    border: 2px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
-    border-radius: 0
+    height: 28px;
+    font-size: 12.5px;
+    padding-left: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--aero-radius-sm);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.Username_input_div_active input:focus {
+    border-color: rgba(60, 120, 210, 0.5);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(60, 120, 210, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .Username_input_div_active .ok_cancel_username {
@@ -507,25 +581,31 @@
     position: relative;
     width: 100%;
     justify-content: flex-end;
-    gap: 4px;
-    top: 10px;
+    gap: 8px;
+    top: 14px;
 }
 
 .Username_input_div_active .ok_cancel_username button {
     position: relative;
-    top: 10px;
-    padding: 3px 9px;
-    font-size: 12px;
-    border: 2px solid white;
-    border-right-color: black;
-    border-bottom-color: black;
-    color: black;
+    width: 60px;
+    height: 24px;
+    font-size: 11.5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--aero-radius-sm);
+    background: var(--aero-btn-gradient);
+    color: var(--aero-text-color);
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 0.12s ease;
+}
+
+.Username_input_div_active .ok_cancel_username button:hover {
+    background: var(--aero-btn-hover);
 }
 
 .Username_input_div_active .ok_cancel_username button:active {
-    border: 2px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .reconnect_container {
@@ -535,23 +615,25 @@
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
-    z-index: 55555555555555555;
+    z-index: 9999999;
 }
 .reconnect_container p {
     position: relative;
     top: 1rem;
-    color: rgb(220, 219, 219);
+    color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
-    z-index: 55555555555555555;
+    font-size: 14px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .reconnect_container p:hover {
-    color: rgb(41, 41, 237);
+    color: white;
+    text-decoration: underline;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) and (min-width: 0px) {
     .folder_barbtn-MSN .x-MSN {      
-        left: 1px;
+        left: 0;
     }
 }
 
@@ -559,24 +641,30 @@
     display: grid;
     place-items: center;
     position: relative;
-    width: 34px;
-    height: 30px;
-    border: 2px solid white;
-    border-right-color: black;
-    border-bottom-color: black;
+    width: 36px;
+    height: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.5);
     margin-left: 2px;
+    cursor: pointer;
+    transition: all 0.12s ease;
 }
 
 .shake_message img {
     position: relative;
-    width: 85%;
-    bottom: 1.5px;
+    width: 22px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.shake_message:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(60, 120, 210, 0.4);
 }
 
 .shake_message:active {
-    border: 2px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    background: rgba(60, 120, 210, 0.2);
+    border-color: rgba(60, 120, 210, 0.5);
 }
 
 .chat_date {
@@ -584,22 +672,22 @@
     position: absolute;
     width: 100%;
     background: transparent;
-    color: black;
+    color: var(--aero-text-color);
     text-align: end;
-    padding-right: 6px;
-    border-radius: 2px;
-    color: rgb(212, 205, 205);
+    padding-right: 8px;
     font-size: 11px;
     z-index: 1;
 }
 
-    .mobile_chat_date {
-        padding: 4px 4px;
-        background: #1b1818f7;
-        border-radius: 2px;
-        font-size: 11px;
-        color: rgb(212, 205, 205);
-    }
+.mobile_chat_date {
+    padding: 4px 6px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: var(--aero-radius-sm);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.9);
+}
 
 
 
