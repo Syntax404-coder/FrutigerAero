@@ -1,46 +1,54 @@
-/* Updated Windows 95 BTC Widget Styles for compact design */
+/* =========================================
+   BTC WIDGET — Aero Glass Style
+   ========================================= */
 .btc_widget_win95 {
   position: absolute;
-  width: 236px;
+  width: 250px;
   height: auto;
-  background: #c0c0c0;
-  border: 2px solid #676363;
-  border-top-color: #e1e0e0;
-  border-left-color: #e1e0e0;
-  right: 1.3rem;
+  background: var(--aero-glass-bg);
+  backdrop-filter: var(--aero-blur);
+  -webkit-backdrop-filter: var(--aero-blur);
+  border: 1px solid var(--aero-glass-border);
+  border-radius: var(--aero-radius);
+  box-shadow: var(--aero-shadow);
+  right: 1.5rem;
   top: 4.4rem;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  opacity: 0.95;
   z-index: 2;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btc_widget_win95:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .btc_content {
-  padding: 8px;
-  background: #c0c0c0;
+  padding: 10px;
+  background: transparent;
 }
 
 
 .btc_price_section {
-  border: 2px solid #676363;
-  border-bottom-color: #e1e0e0;
-  border-right-color: #e1e0e0;
-  padding: 4px;
-  margin-bottom: 4px;
-  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: var(--aero-radius-sm);
+  padding: 8px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .btc_price_header {
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-bottom: 1px;
+  gap: 6px;
+  margin-bottom: 2px;
 }
 
 .btc_price_icon {
   position: relative;
-  width: 16px;
-  height: 16px;
-  top: 1px;
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 .btc_price_main {
@@ -48,59 +56,65 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  top: 4px;
+  top: 2px;
 }
 
 .btc_symbol {
   position: relative;
-  font-size: 10px;
-  color: #000080;
-  font-weight: bold;
-  top: 2px;
+  font-size: 11.5px;
+  color: #333;
+  font-weight: 600;
+  top: 1px;
 }
 
 .btc_price {
   position: relative;
-  font-size: 14px;
-  font-weight: bold;
-  color: rgb(16, 15, 15);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--aero-text-color);
   left: 1px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .btc_percentage {
-  font-size: 10px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
 }
 
 .btc_percentage.positive {
-  color: #008000;
+  color: #107c10;
+  background: rgba(16, 124, 16, 0.1);
 }
 
 .btc_percentage.negative {
-  color: #800000;
+  color: #c50f1f;
+  background: rgba(197, 15, 31, 0.1);
 }
 
 
 .btc_stats_section {
   display: flex;
-  /* border: 2px solid #676363;
-  border-bottom-color: #e1e0e0;
-  border-right-color: #e1e0e0; */
-  justify-content: center;
-  margin-bottom: 4px;
   justify-content: space-between;
-  
+  margin-bottom: 8px;
+  gap: 4px;
 }
 
 .btc_stat_row {
   display: flex;
   width: 32%;
-  border: 2px solid #676363;
-  border-bottom-color: #e1e0e0;
-  border-right-color: #e1e0e0;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: var(--aero-radius-sm);
   justify-content: space-around;
-  padding: 4px;
-  background: white;
+  padding: 6px 4px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.btc_stat_row:hover {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .btc_stat_row:last-child {
@@ -111,93 +125,91 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  font-size: 9px;
+  font-size: 10.5px;
   align-items: center;
 }
 
 .btc_stat_label {
-  color: #000080;
-  font-weight: bold;
+  color: #555;
+  font-weight: 600;
   min-width: 20px;
 }
 
 .btc_stat_value {
-  color: black;
+  color: var(--aero-text-color);
+  font-weight: 500;
 }
 
 
 .btc_chart_section {
-  border: 2px solid #676363;
-  border-bottom-color: #e1e0e0;
-  border-right-color: #e1e0e0;
-  background: white;
-  padding: 2px;
-  margin-bottom: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: var(--aero-radius-sm);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 4px;
+  margin-bottom: 8px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .btc_chart_container {
   width: 100%;
-  height: 60px;
-  background: white;
+  height: 65px;
+  background: transparent;
 }
 
-/* New bottom section with refresh button */
+
 .btc_bottom_section {
   display: flex;
   justify-content: center;
   position: relative;
-  top: 1px;
-  gap: 4px;
+  gap: 8px;
 }
 
 .btc_refresh_button {
   display: flex;
-  background: #c0c0c0;
-  border: 2px solid #585454;
-  border-top-color: #e1e0e0;
-  border-left-color: #e1e0e0;
-  padding: 2px 8px;
-  font-size: 11px;
+  background: var(--aero-btn-gradient);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: var(--aero-radius-sm);
+  padding: 4px 12px;
+  font-size: 12.5px;
   cursor: pointer;
   align-items: center;
-  gap: 4px;
-  color: black;
+  gap: 6px;
+  color: var(--aero-text-color);
   width: 100%;
-  height: 23px;
+  height: 28px;
   justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.12s ease;
+  font-weight: 500;
 }
 
 .btc_refresh_button:hover {
-  background: #d4d4d4;
+  background: var(--aero-btn-hover);
 }
 
 .btc_refresh_button:active {
-  border: 2px inset black;
+  background: var(--aero-btn-active);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .btc_refresh_button.active .btc_refresh_icon {
-  animation: win95_spin 1s ease-in-out;
+  animation: aero_spin 1s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .btc_refresh_icon {
     position: relative;
-    width: 12px;
-    height: 12px;
-
+    width: 14px;
+    height: 14px;
 }
 
-@keyframes win95_spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+@keyframes aero_spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @media (max-width: 320px) {
   .btc_widget_win95 {
-    width: 220px;
+    width: 230px;
     right: 0.5rem;
   }
 }
@@ -205,9 +217,23 @@
 .show_chart {
     position: relative;
     width: 100%;
-    height: 20px;
-    border: 2px solid #585454;
-    border-top-color: #e1e0e0;
-    border-left-color: #e1e0e0;
-    margin-bottom: 1px;
+    height: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--aero-radius-sm);
+    background: var(--aero-btn-gradient);
+    margin-bottom: 4px;
+    color: var(--aero-text-color);
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 0.12s ease;
+}
+
+.show_chart:hover {
+    background: var(--aero-btn-hover);
+}
+
+.show_chart:active {
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
