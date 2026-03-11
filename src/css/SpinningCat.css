@@ -1,3 +1,6 @@
+/* =========================================
+   SPINNING CAT — Aero Glass
+   ========================================= */
 
 .cat_container {
     position: absolute;
@@ -10,7 +13,6 @@
     user-select: none;
     animation: bgFlicker 1s forwards;
     animation-delay: 4s;
-
 }
 
 .cat_container video {
@@ -35,122 +37,89 @@
     top: 50%;
     transform: translate(-50%, -50%);
     animation: catAppear 6s ease forwards;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
 .exit_btn {
-    display: grid;
+    display: flex;
+    justify-content: center;
     position: absolute;
-    width: 52px;
-    height: 45px;
-    border: 2px solid #00000060;
+    width: 60px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     z-index: 10;
     cursor: pointer;
     text-align: center;
-    place-items: center;
-    border-radius: 4px;
+    align-items: center;
+    border-radius: var(--aero-radius-sm);
     left: 50%;
     transform: translate(-50%);
-    background: #0000007f;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: white;
     opacity: 0;
     animation: btnAppear 0.4s ease-in-out forwards;
     animation-delay: 1s;
-    transition: ease-in-out 0.3s;
-    top: 1rem;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    top: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .exit_btn span {
     position: relative;
-    left: 1px;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .exit_btn.hide {
     opacity: 1;
-    top: -3rem;
+    top: -4rem;
     transition: ease-in-out 0.3s;
 }
 
-
-
 .exit_btn:hover{
-    background: black;
+    background: rgba(180, 60, 60, 0.6);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transform: translate(-50%) translateY(-2px);
 }
 
 .exit_btn:active {
-    width: 47px;
-    height: 43px;
+    background: rgba(180, 60, 60, 0.8);
+    transform: translate(-50%) translateY(1px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 
 @keyframes catAppear {
-    0%{
-        opacity: 0;
-    }
-    20%{
-        opacity: 1;
-    }
-    80%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        
-        
-    }
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+    15% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
 }
 
 @keyframes btnAppear {
-    0%{
-        opacity: 0;
-
-    }
-    100%{
-        opacity: 1;
-
-    }
+    0%{ opacity: 0; transform: translate(-50%) translateY(-10px); }
+    100%{ opacity: 1; transform: translate(-50%) translateY(0); }
 }
 
 @keyframes videoAppear {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+    0%{ opacity: 0; }
+    100%{ opacity: 1; }
 }
 
 @keyframes bgFlicker {
-    0% {
-        background: transparent;
-    }
-    10% {
-        background: #FF5733; /* Red-orange */
-    }
-    20% {
-        background: #FF4500; /* Orange-red */
-    }
-    30% {
-        background: #00FD0A; /* Green */
-    }
-    40% {
-        background: #33C1FF; /* Light blue */
-    }
-    50% {
-        background: #FFD700; /* Yellow */
-    }
-    60% {
-        background: #8A2BE2; /* Blue-violet */
-    }
-    70% {
-        background: #FF1493; /* Deep pink */
-    }
-    80% {
-        background: #ADFF2F; /* Green-yellow */
-    }
-    90% {
-        background: #FF6347; /* Tomato red */
-    }
-    100% {
-        background: #00FD0A; /* Final green */
-    }
+    0% { background: transparent; }
+    10% { background: #FF5733; }
+    20% { background: #FF4500; }
+    30% { background: #00FD0A; }
+    40% { background: #33C1FF; }
+    50% { background: #FFD700; }
+    60% { background: #8A2BE2; }
+    70% { background: #FF1493; }
+    80% { background: #ADFF2F; }
+    90% { background: #FF6347; }
+    100% { background: #00FD0A; }
 }
