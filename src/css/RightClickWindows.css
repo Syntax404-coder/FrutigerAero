@@ -1,13 +1,18 @@
+/* =========================================
+   RIGHT CLICK MENUS — Aero Glass Style
+   ========================================= */
+
 .window_rightclick_container {
     position: absolute;
-    width: 138px;
-    height: 180px;
-    background: #c5c4c4;
-    border: 2px solid rgb(238, 237, 237);
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    outline: 1px solid rgb(255, 255, 255);
-    padding: 4px 2px;
+    width: 145px;
+    height: auto;
+    background: var(--aero-menu-bg);
+    backdrop-filter: var(--aero-blur);
+    -webkit-backdrop-filter: var(--aero-blur);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--aero-radius-sm);
+    box-shadow: var(--aero-shadow);
+    padding: 6px 4px;
     z-index: 9999999999999;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -19,94 +24,115 @@
     position: relative;
     font-size: 12px;
     width: 100%;
-    padding: 1px 24px;
+    padding: 4px 12px;
     white-space: nowrap;
-    cursor: default;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.12s ease;
+    color: var(--aero-text-color);
 }
 
 .window_rightclick_container p:hover {
-    background: #040d91;
-    color: white;
+    background: var(--aero-menu-hover);
+    color: var(--aero-text-color);
 }
 
 .window_rightclick_container h5 {
     padding: 0px;
-    border-bottom: 2.5px groove #eae8e8;
-    margin: 4px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 4px 6px;
 }
+
 .window_rightclick_container span {
     position: absolute;
     font-size: 10px;
-    right: 4px;
-    top: 5px
+    right: 8px;
+    top: 6px;
+    color: #888;
 }
 
 .pop_up_create {
     display: grid;
     position: fixed;
-    background: #c5c4c4;
-    padding: 1rem 2rem;
-    border: 2px solid rgb(238, 237, 237);
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    outline: 1px solid rgb(255, 255, 255);
+    background: var(--aero-glass-bg-strong);
+    backdrop-filter: var(--aero-blur-heavy);
+    -webkit-backdrop-filter: var(--aero-blur-heavy);
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--aero-glass-border);
+    border-radius: var(--aero-radius);
+    box-shadow: var(--aero-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.4);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     place-items: center;
-    gap: 4px;
+    gap: 8px;
     z-index: 9999999;
 }
 
 .pop_up_create p {
     margin: auto;
     font-size: 13px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    color: var(--aero-text-color);
 }
 
-
-
 .pop_up_create input {
-    font-size: 13px;
-    padding: 2px;
-    border-radius: 0px;
-    padding-left: 4px;
+    font-size: 12.5px;
+    padding: 4px 8px;
+    border-radius: var(--aero-radius-sm);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.15s ease;
+    color: var(--aero-text-color);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.pop_up_create input:focus {
+    border-color: rgba(60, 120, 210, 0.5);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(60, 120, 210, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
 }
 
 .ok_cancel_btn {
     display: flex;
-    gap: 8px;
-    margin-top: 4px;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .ok_cancel_btn button {
     margin-top: 2px;
-    width: 60px;
-    padding: 4px 8px;
-    font-size: 11px;
-    border-radius: 0px;
+    width: 65px;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: var(--aero-radius-sm);
     cursor: pointer;
-    background: #c5c4c4;
-    border: 2px solid rgb(238, 237, 237);
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    background: var(--aero-btn-gradient);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.12s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: var(--aero-text-color);
+}
 
+.ok_cancel_btn button:hover {
+    background: var(--aero-btn-hover);
 }
 
 .ok_cancel_btn button:active {
-    border: 2px solid rgb(27, 26, 26);
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .sort_expand {
     position: absolute;
-    width: 138px;
+    width: 145px;
     height: fit-content;
-    border: 2px solid rgb(222, 221, 221);
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    background: #c5c4c4;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--aero-radius-sm);
+    background: var(--aero-menu-bg);
+    backdrop-filter: var(--aero-blur);
+    -webkit-backdrop-filter: var(--aero-blur);
+    box-shadow: var(--aero-shadow);
     top: 0px;
-    padding: 2px;
+    padding: 6px 4px;
 }

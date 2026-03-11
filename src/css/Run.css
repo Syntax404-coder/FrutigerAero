@@ -1,15 +1,18 @@
-/* ------------ Folders ---------------- */
+/* =========================================
+   RUN DIALOG — Aero Glass
+   ========================================= */
 
 .folder_folder_run {
     display: none;
     position: fixed;
-    width: 345px;
-    height: 165px;
-    background: #c5c4c4;
-    border: 2px solid white;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    outline: 1px solid white;
+    width: 380px;
+    height: 185px;
+    background: var(--aero-glass-bg);
+    backdrop-filter: var(--aero-blur);
+    -webkit-backdrop-filter: var(--aero-blur);
+    border: 1px solid var(--aero-glass-border);
+    border-radius: var(--aero-radius);
+    box-shadow: var(--aero-shadow);
     overflow: hidden;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -18,20 +21,16 @@
 }
    
 
-/* @media screen and (max-width: 450px) {
-    .folder_folder_run {
-    
-    }
-} */
-
 .folder_folder_run .folder_dragbar_run {
    display: flex;
    position: relative;
-   height: 20px;
+   height: 30px;
    width: 100%;
-   margin-bottom: 1px;
+   background: var(--aero-title-gradient);
+   border-radius: var(--aero-radius) var(--aero-radius) 0 0;
    align-items: center;
    justify-content: space-between;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -41,47 +40,63 @@
 .folder_barname_run span {
     position: relative;
     font-size: 13px;
-    color: white;
-    margin-left: 5px;
-    
+    color: var(--aero-text-light);
+    margin-left: 10px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
 }
 
 .folder_folder_run .folder_barbtn_run {
     display: flex;
     position: relative;
-    margin-right: 3px;
-    gap: 2px;
+    margin-right: 6px;
+    gap: 3px;
 }
 
 .folder_barbtn_run div {
-    width: 15px;
-    height: 15px;
-    background: #c9c9c9;
-    font-weight: bold;
-    border: 1px solid black;
-    border-top-color: rgb(198, 198, 198);border-left-color: rgb(198, 198, 198);
-    box-shadow: inset 1px 1px #ffffff, 1px 1px #000000dd;
-    cursor: default;
+    width: 22px;
+    height: 22px;
+    background: var(--aero-btn-gradient);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.12s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    font-weight: normal;
+}
+
+.folder_barbtn_run div:hover {
+    background: var(--aero-btn-hover);
 }
 
 .folder_barbtn_run div:not(.expand):active {
-    border-top-color: black;border-left-color: black;
-    border-bottom-color: white;border-right-color: white;
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .folder_barbtn_run .x {
     position: relative;
     text-align: center;
-    font-size: 16px;
-    bottom: 6px;
-
+    font-size: 14px;
+    bottom: 0px;
+    color: white;
+    background: var(--aero-close-bg);
+    border-color: rgba(180, 60, 60, 0.4);
 }
+
+.folder_barbtn_run .x:hover {
+    background: var(--aero-close-hover);
+}
+
 
 /* support only safari */
 @supports (-webkit-touch-callout: none) {
     .folder_barbtn_run .x {
-        bottom: 5.5px;
-        left: 1px;
+        bottom: 0px;
+        left: 0px;
     }
 }
 
@@ -89,94 +104,104 @@
     display: flex;
     position: relative;
     width: 90%;
-    height: 40px;
-    gap: 10px;
+    height: 44px;
+    gap: 12px;
     margin-top: 1.2rem;
-    margin-left: .5rem;
+    margin-left: 1rem;
+    align-items: center;
 
 }
 
 .run_top_container img {
     position: relative;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 .run_top_container p {
-    font-size: 11px;
+    font-size: 12.5px;
+    color: var(--aero-text-color);
 }
 
 .run_middle_container {
     display: flex;
     position: relative;
-    margin-left: .5rem;
-    margin-top: .5rem;
-    gap: 17px;
-    
+    margin-left: 1rem;
+    margin-top: .8rem;
+    gap: 12px;
+    align-items: center;
 }
 
 .run_middle_container p {
     position: relative;
-    left: 3px;
-    top: 1px;
-    font-size: 12px;
-    color: black;
+    font-size: 12.5px;
+    color: var(--aero-text-color);
+    font-weight: 600;
 }
 
 .run_middle_container p::before {
-    content: '_';
-    position: absolute;
+    display: none;
 }
 
 .run_middle_container input {
     position: relative;
-    width: 80%;
-    height: 20px;
-    border: 2px solid white;
-    border-top-color: black;
-    border-left-color: black;
-    border-radius: 0;
-    background: white;
-    font-size: 11px;
-    padding-top: 2px;
+    width: 250px;
+    height: 26px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--aero-radius-sm);
+    background: #ffffff;
+    font-size: 12.5px;
+    padding-left: 8px;
+    padding-right: 28px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.15s ease;
+    color: var(--aero-text-color);
 }
 
-@supports (-webkit-touch-callout: none) {
-    .run_middle_container input {
-        padding-top: 6px;;
-    }
+.run_middle_container input:focus {
+    border-color: rgba(60, 120, 210, 0.5);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(60, 120, 210, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.06);
 }
+
 
 .run_middle_container div {
     display: grid;
     place-items: center;
     position: absolute;
-    width: 16px;
-    height: 16.5px;
+    width: 22px;
+    height: 22px;
     top: 2px;
-    right: 1.33rem;
-    border: 2px solid rgb(248, 243, 243);
-    border-bottom-color: black;
-    border-right-color: black;
-    background: #c5c4c4;
+    right: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    background: var(--aero-btn-gradient);
+    cursor: pointer;
+    transition: all 0.12s ease;
+}
+
+.run_middle_container div:hover {
+    background: var(--aero-btn-hover);
 }
 
 .run_middle_container div:active {
-    border: 1px solid black;;
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .run_middle_container div .arrow_down {
     position: relative;
     bottom: 0px;
-    font-size: 8px;
-    color: black;
+    font-size: 10px;
+    color: var(--aero-text-color);
 }
 
 .run_btn_container {
     display: flex;
     position: relative;
     justify-content: flex-end;
-    gap: 7px;
+    gap: 10px;
     margin-top: 1.2rem;
     margin-right: 1.2rem;
 }
@@ -185,51 +210,66 @@
     display: grid;
     place-items: center;
     position: relative;
-    width: 68px;
-    height: 22px;
-    border: 2px solid white;
-    border-right-color: black;
-    border-bottom-color: black;
-    font-size: 11px;
+    width: 75px;
+    height: 26px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--aero-radius-sm);
+    background: var(--aero-btn-gradient);
+    font-size: 12px;
     text-align: center;
-    cursor: default;
+    cursor: pointer;
+    transition: all 0.12s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: var(--aero-text-color);
+}
+
+.run_btn_container div:hover {
+    background: var(--aero-btn-hover);
 }
 
 .run_btn_container div:active {
-    border: 2px solid black;
-    border-right-color: white;
-    border-bottom-color: white;
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .run_btn_container div p {
     position: relative;
-    top: 1px;
+    top: 0px;
 }
 
 .run_dropdown_box {
     display: flex;
     position: absolute;
     flex-direction: column;
-    left: 3.4rem;
-    width: 268px;
-    height: 40px;
-    border: 1px solid black;
-    background: white;
-    z-index: 1;
-    overflow: auto;
+    left: 4.8rem;
+    width: 250px;
+    height: auto;
+    max-height: 120px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--aero-radius-sm);
+    background: var(--aero-menu-bg);
+    backdrop-filter: var(--aero-blur);
+    -webkit-backdrop-filter: var(--aero-blur);
+    box-shadow: var(--aero-shadow);
+    z-index: 100;
+    overflow-y: auto;
+    padding: 4px;
 }
 
 .run_dropdown_box::-webkit-scrollbar {
-    width: 0px;
+    width: 6px;
 }
 
 .run_dropdown_box p {
-   font-size: 11px;
-   padding: 1px 5px;
+   font-size: 11.5px;
+   padding: 4px 8px;
+   cursor: pointer;
+   border-radius: 3px;
+   transition: all 0.12s ease;
+   color: var(--aero-text-color);
 }
 
 .run_dropdown_box p:hover {
-   background: #040482;
-   color: white;
+   background: var(--aero-menu-hover);
+   color: var(--aero-text-color);
 }
-
