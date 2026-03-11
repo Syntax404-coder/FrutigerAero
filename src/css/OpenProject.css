@@ -1,0 +1,274 @@
+
+/* =========================================
+   OPEN PROJECT (IE Browser) — Aero Glass Window
+   ========================================= */
+
+.folder_folder-open-project {
+    display: none;
+    position: fixed;
+    width: 600px;
+    min-width: 420px;
+    min-height: 500px;
+    height: 75%;
+    background: var(--aero-glass-bg);
+    backdrop-filter: var(--aero-blur);
+    -webkit-backdrop-filter: var(--aero-blur);
+    border: 1px solid var(--aero-glass-border);
+    border-radius: var(--aero-radius);
+    box-shadow: var(--aero-shadow);
+    overflow: hidden;
+    resize: both;
+}
+   
+
+@media screen and (max-width: 450px) {
+    .folder_folder-open-project {
+        width: 95%;
+        min-width: 300px;
+    }
+}
+
+.folder_folder-open-project .folder_barbtn {
+    display: flex;
+    position: relative;
+    margin-right: 6px;
+    gap: 3px;
+}
+
+.folder_folder-open-project .folder_dragbar {
+   display: flex;
+   position: relative;
+   height: 30px;
+   width: 100%;
+   background: var(--aero-title-gradient);
+   border-radius: var(--aero-radius) var(--aero-radius) 0 0;
+   align-items: center;
+   justify-content: space-between;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.folder_folder-open-project .file_edit_container {
+    display: flex;
+    position: relative;
+    left: 2px;
+    top: 2px;
+    gap: 5px;
+    font-size: 12.5px;
+    padding-left: 10px;
+    cursor: default;
+    color: var(--aero-text-color);
+}
+
+.folder_folder-open-project .x {
+    position: relative;
+    bottom: 0;
+}
+
+
+/* support only safari */
+@supports (-webkit-touch-callout: none) {
+    .folder_folder-open-project .x {
+        bottom: 0; 
+        left: 0;
+    }
+}
+
+
+
+/* --------------------- */
+.openproject_content {
+    position: relative;
+    width: calc(100% - 16px);
+    height: calc(100% - 150px);
+    margin: 0 auto;
+    top: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--aero-radius-sm);
+    background: white;
+}
+
+.address_container {
+    display: flex;
+    position: relative;
+    width: calc(100% - 16px);
+    height: 32px;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    top: 4px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 4px;
+    cursor: default;
+    color: var(--aero-text-color);
+}
+.address_container .address {
+    position: relative;
+    font-weight: 600;
+    font-size: 11.5px;
+}
+.address_box {
+    width: 100%;
+    position: relative;
+    padding: 3px 6px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: var(--aero-radius-sm);
+    color: var(--aero-text-color);
+    background: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.address_box p {
+    position: relative;
+    top: 0px;
+    white-space: nowrap;
+    cursor: auto;
+    font-size: 11.5px;
+}
+
+.address_box div {
+    display: grid;
+    position: absolute;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    right: 2px;
+    top: 2px;
+    background: var(--aero-btn-gradient);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+}
+
+.address_box div:hover {
+    background: var(--aero-btn-hover);
+}
+
+.address_box div:active {
+    background: var(--aero-btn-active);
+}
+
+.address_box div > img {
+    position: relative;
+    width: 8px;
+    height: 8px;
+}
+
+.address_container_btn {
+    display: flex;
+    position: relative;
+    width: calc(100% - 16px);
+    height: 36px;
+    align-items: center;
+    gap: 4px;
+    font-size: 11.5px;
+    top: 4px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 4px;
+    cursor: default;
+    color: var(--aero-text-color);
+}
+
+.btn_addy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 36px;
+    height: 34px;
+    filter: grayscale(30%);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.12s ease;
+}
+
+.btn_addy:hover {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(0, 0, 0, 0.1);
+    filter: grayscale(0%);
+}
+
+.btn_addy img {
+    position: absolute;
+    width: 22px;
+    height: 20px;
+    top: -1px;
+}
+
+.btn_addy p {
+    position: absolute;
+    font-size: 9px;
+    text-align: center;
+    bottom: -2px;
+    margin-left: 3px;
+}
+
+
+
+.addy_expand_container {
+    display: grid;
+    position: absolute;
+    width: calc(100% - 49px);
+    height: fit-content;
+    background: var(--aero-menu-bg);
+    backdrop-filter: var(--aero-blur);
+    -webkit-backdrop-filter: var(--aero-blur);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--aero-radius-sm);
+    box-shadow: var(--aero-shadow-sm);
+    padding: 4px;
+    top: 1.55rem;
+    right: 1px;
+    z-index: 999999;
+}
+
+.addy_expand_container div {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 3px 6px;
+    border-radius: 3px;
+    transition: background 0.12s ease;
+}
+
+.addy_expand_container p {
+    padding-left: 4px;
+    color: var(--aero-text-color);
+    font-size: 12px;
+}
+
+.addy_expand_container div > span {
+    color: #888;
+    font-size: 11px;
+}
+
+.addy_expand_container div:hover {
+    background: var(--aero-menu-hover);
+    color: var(--aero-text-color);
+}
+
+.ifram_text_container {
+    position: relative;
+    width: 100%;
+    font-size: 11px;
+    text-align: center;
+    top: 13px;
+    color: var(--aero-text-color);
+}
+
+.ifram_text_container a {
+    color: #2060c0;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.ifram_text_container a:hover {
+    color: #3080e0;
+}

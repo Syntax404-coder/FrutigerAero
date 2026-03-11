@@ -1,0 +1,230 @@
+/* =========================================
+   SHUTDOWN DIALOG — Aero Glass Style
+   ========================================= */
+
+.shutdown_bg {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    width: 100svw;
+    height: 100svh;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9999999999;
+}
+
+.shutdown_container {
+    position: relative;
+    height: auto;
+    width: 380px;
+    min-width: 282px;
+    background: var(--aero-glass-bg-strong);
+    backdrop-filter: var(--aero-blur-heavy);
+    -webkit-backdrop-filter: var(--aero-blur-heavy);
+    border: 1px solid var(--aero-glass-border);
+    border-radius: var(--aero-radius);
+    box-shadow: var(--aero-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+    resize: none;  
+    padding-bottom: 16px;
+}
+
+.nav_shutdown {
+    display: flex;
+    position: relative;
+    height: 30px;
+    background: var(--aero-title-gradient);
+    width: 100%;
+    border-radius: var(--aero-radius) var(--aero-radius) 0 0;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.nav_shutdown p {
+    color: var(--aero-text-light);
+    padding-left: 10px;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
+}
+
+.nav_shutdown .x_shutdown_container {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    margin-right: 6px;
+    background: var(--aero-close-bg);
+    border: 1px solid rgba(180, 60, 60, 0.4);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.12s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.nav_shutdown .x_shutdown_container:hover {
+    background: var(--aero-close-hover);
+}
+
+.nav_shutdown .x_shutdown_container:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.nav_shutdown .x_shutdown_container p {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@supports (-webkit-touch-callout: none) {
+    .nav_shutdown .x_shutdown_container p {
+        bottom: 0;
+    }
+}
+
+.shutdown_main_container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 
+    'img shutdown_text_container';
+    padding: 16px;
+    gap: 12px;
+}
+
+.shutdown_main_container img {
+    grid-area: img;
+    width: 60px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+}
+
+.shutdown_text_container {
+    grid-area: 'shutdown_text_container';
+}
+
+.shutdown_text_container p {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: var(--aero-text-color);
+}
+
+.shutdown_main_container input {
+    position: relative;
+    right: 0;
+    top: 0;
+}
+
+input[type='radio'] {
+    accent-color: #3a7ad5;
+}
+
+.shutdown_main_container label {
+    position: relative;
+    font-size: 12px;
+    bottom: 0;
+    right: 0;
+    color: var(--aero-text-color);
+    cursor: pointer;
+}
+
+.shutdown_main_container span {
+    position: relative;
+    padding: 1px 2px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.shutdown_main_container span::before {
+    display: none;
+}
+
+@-moz-document url-prefix() {
+    .shutdown_main_container span::before {
+        margin-left: 0px;
+    }
+    .shutdown_main_container span {
+        position: relative;
+        bottom: 0px;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    .shutdown_main_container span::before {
+        bottom: 3px; 
+        margin-left: 0px;
+    }
+    .shutdown_main_container input {
+        width: 12px;
+    }
+    .shutdown_main_container span {
+        position: relative;
+        bottom: 0;
+    }
+}
+
+.shutdown_btn_container {
+    display: flex;
+    position: relative;
+    width: fit-content;
+    height: auto;
+    gap: 8px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 16px;
+    margin-top: 8px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.shutdown_btn_container div {
+    position: relative;
+    width: 80px;
+    text-align: center;
+    font-size: 12px;
+    padding: 4px 8px;
+    background: var(--aero-btn-gradient);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--aero-radius-sm);
+    cursor: pointer;
+    transition: all 0.12s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: var(--aero-text-color);
+}
+
+.shutdown_btn_container div:hover {
+    background: var(--aero-btn-hover);
+}
+
+.shutdown_btn_container div:active {
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+
+@media screen and (width < 500px) {
+    .shutdown_container {
+        width: 80%;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) and (min-width: 0px) {
+    .x_shutdown_container p {      
+        left: 0;
+    }
+}

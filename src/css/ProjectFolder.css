@@ -1,0 +1,282 @@
+/* =========================================
+   PROJECT FOLDER — Aero Glass Window
+   ========================================= */
+
+.folder_folder-project {
+    display: none;
+    position: fixed;
+    width: 400px;
+    min-width: 250px;
+    min-height: 250px;
+    height: 320px;
+    background: var(--aero-glass-bg);
+    backdrop-filter: var(--aero-blur);
+    -webkit-backdrop-filter: var(--aero-blur);
+    border: 1px solid var(--aero-glass-border);
+    border-radius: var(--aero-radius);
+    box-shadow: var(--aero-shadow);
+    resize: both;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 450px) {
+    .folder_folder-project {
+        width: 84%;
+        min-width: 300px;
+    }
+}
+
+.folder_folder-project .folder_dragbar-project {
+   display: flex;
+   position: relative;
+   height: 30px;
+   width: 100%;
+   background: var(--aero-title-gradient);
+   border-radius: var(--aero-radius) var(--aero-radius) 0 0;
+   align-items: center;
+   justify-content: space-between;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.folder_barname-project img {
+    position: relative;
+    width: 16px;
+    top: 1px;
+    margin-left: 8px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.folder_barname-project span {
+    position: relative;
+    font-size: 13px;
+    color: var(--aero-text-light);
+    margin-left: 6px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
+}
+
+.folder_folder-project .folder_barbtn-project {
+    display: flex;
+    position: relative;
+    margin-right: 6px;
+    gap: 3px;
+}
+
+.folder_barbtn-project div {
+    width: 22px;
+    height: 22px;
+    background: var(--aero-btn-gradient);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.12s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    font-weight: normal;
+}
+
+.folder_barbtn-project div:hover {
+    background: var(--aero-btn-hover);
+}
+
+.folder_barbtn-project div:not(.expand-project):active {
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.folder_barbtn-project .x-project {
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    bottom: 0;
+    color: white;
+    background: var(--aero-close-bg);
+    border-color: rgba(180, 60, 60, 0.4);
+}
+
+.folder_barbtn-project .x-project:hover {
+    background: var(--aero-close-hover);
+}
+
+/* support only safari */
+@supports (-webkit-touch-callout: none) {
+    .folder_barbtn-project .x-project {
+        bottom: 0; 
+        left: 0;
+    }
+}
+
+.folder_barbtn-project .dash-project {
+    position: relative;
+    width: 10px;
+    top: 0;
+    margin: 0 auto;
+    border-bottom: 2px solid var(--aero-text-color);
+}
+.folder_barbtn-project .expand-project {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--aero-text-color);
+    border-top: 2px solid var(--aero-text-color);
+    box-shadow: none;
+    margin: 0 auto;
+    top: 0;
+    z-index: 2;
+    background: transparent;
+    border-radius: 1px;
+}
+
+.folder_barbtn-project .expand-project.full {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--aero-text-color);
+    border-top: 2px solid var(--aero-text-color);
+    box-shadow: none;
+    margin: 0 auto;
+    top: 1px;
+    right: 1px;
+    z-index: 1;
+    background: transparent;
+    border-radius: 1px;
+}
+
+.folder_barbtn-project .expand_2-project {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--aero-text-color);
+    border-top: 2px solid var(--aero-text-color);
+    box-shadow: none;
+    margin: 0 auto;
+    bottom: 5px;
+    left: 1px;
+    background: transparent;
+    border-radius: 1px;
+}
+
+.folder_folder-project .file_edit_container-project {
+    display: flex;
+    gap: 5px;
+    font-size: 12.5px;
+    padding-left: 10px;
+    padding-top: 4px;
+    cursor: default;
+    color: var(--aero-text-color);
+}
+
+.file_edit_container-project span {
+    position: relative;
+}
+
+.folder_folder-project .folder_content-project {
+    position: relative;
+    width: calc(100% - 8px);
+    height: calc(100% - 82px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--aero-radius-sm);
+    margin: 0 auto;
+    margin-top: 3px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.parent_container-project {
+    height: calc(100%);
+    overflow-y: auto;
+    
+}
+
+.parent_container-project .item_container-project {
+    display: flex;
+    width: fit-content;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 8px 4px;
+}
+
+.item_container-project .item_1-project {
+    display: grid;
+    position: relative;
+    place-items: center;
+    width: 60px;
+    height: 0px;
+    cursor: default;
+    background: transparent;
+}
+
+.item_container-project img {
+    width: 32px;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.item_container-project .item_1_img_focus-project {
+    filter: brightness(1.1) drop-shadow(0 2px 6px rgba(60, 120, 210, 0.4));
+}
+
+.item_container-project .p_normal {
+    color: var(--aero-text-color) !important;
+}
+
+.item_1_p_focus-project {
+    background: var(--aero-focus-bg);
+    height: auto;
+    border: 1px solid rgba(60, 120, 210, 0.5);
+    border-radius: 3px;
+    color: white;
+    padding: 0 3px;
+}
+
+
+
+.folder_folder-project .btm_bar_container-project {
+    display: flex;
+    gap: 5px;
+    width: calc(100% - 8px);
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 4px;
+    cursor: default;
+} 
+
+.btm_bar_container-project .object_bar-project {
+    width: 80%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.3);
+}
+.btm_bar_container-project .size_bar-project {
+    width: 55%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btm_bar_container-project p {
+    position: relative;
+    font-size: 11.5px;
+    padding-top: 2px;
+    margin-left: 4px;
+    color: var(--aero-text-color);
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) and (min-width: 0px) {
+    .folder_barbtn-project .x-project {      
+        left: 0;
+    }
+}

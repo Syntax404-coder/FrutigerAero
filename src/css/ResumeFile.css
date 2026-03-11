@@ -1,0 +1,365 @@
+/* =========================================
+   RESUME FILE — Aero Glass Window
+   ========================================= */
+
+.folder_folder-resumefile {
+    display: none;
+    position: fixed;
+    width: 400px;
+    min-width: 300px;
+    min-height: 250px;
+    height: 620px;
+    background: var(--aero-glass-bg);
+    backdrop-filter: var(--aero-blur);
+    -webkit-backdrop-filter: var(--aero-blur);
+    border: 1px solid var(--aero-glass-border);
+    border-radius: var(--aero-radius);
+    box-shadow: var(--aero-shadow);
+    overflow: hidden;
+    resize: both;
+}
+   
+
+@media screen and (max-width: 450px) {
+    .folder_folder-resumefile {
+        width: 80%;
+        min-width: 300px;
+        height: 70%;
+    }
+}
+
+.folder_folder-resumefile .folder_dragbar-resumefile {
+   display: flex;
+   position: relative;
+   height: 30px;
+   width: 100%;
+   background: var(--aero-title-gradient);
+   border-radius: var(--aero-radius) var(--aero-radius) 0 0;
+   align-items: center;
+   justify-content: space-between;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.folder_barname-resumefile img {
+    position: relative;
+    width: 16px;
+    top: 1px;
+    margin-left: 8px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.folder_barname-resumefile span {
+    position: relative;
+    font-size: 13px;
+    color: var(--aero-text-light);
+    margin-left: 6px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
+}
+
+.folder_folder-resumefile .folder_barbtn-resumefile {
+    display: flex;
+    position: relative;
+    margin-right: 6px;
+    gap: 3px;
+}
+
+.folder_barbtn-resumefile div {
+    width: 22px;
+    height: 22px;
+    background: var(--aero-btn-gradient);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.12s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    font-weight: normal;
+}
+
+.folder_barbtn-resumefile div:hover {
+    background: var(--aero-btn-hover);
+}
+
+.folder_barbtn-resumefile div:not(.expand-resumefile):active {
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.folder_barbtn-resumefile .x-resumefile {
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    bottom: 0;
+    color: white;
+    background: var(--aero-close-bg);
+    border-color: rgba(180, 60, 60, 0.4);
+}
+
+.folder_barbtn-resumefile .x-resumefile:hover {
+    background: var(--aero-close-hover);
+}
+
+/* support only safari */
+@supports (-webkit-touch-callout: none) {
+    .folder_barbtn-resumefile .x-resumefile {
+        bottom: 0; 
+    }
+}
+
+.folder_barbtn-resumefile .dash-resumefile {
+    position: relative;
+    width: 10px;
+    top: 0;
+    margin: 0 auto;
+    border-bottom: 2px solid var(--aero-text-color);
+}
+.folder_barbtn-resumefile .expand-resumefile {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--aero-text-color);
+    border-top: 2px solid var(--aero-text-color);
+    box-shadow: none;
+    margin: 0 auto;
+    top: 0;
+    background: transparent;
+    border-radius: 1px;
+}
+
+.folder_barbtn-resumefile .expand-resumefile.full {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--aero-text-color);
+    border-top: 2px solid var(--aero-text-color);
+    box-shadow: none;
+    margin: 0 auto;
+    top: 1px;
+    right: 1px;
+    z-index: 1;
+    background: transparent;
+    border-radius: 1px;
+}
+
+.folder_barbtn-resumefile .expand_2-resumefile {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--aero-text-color);
+    border-top: 2px solid var(--aero-text-color);
+    box-shadow: none;
+    margin: 0 auto;
+    bottom: 5px;
+    left: 1px;
+    background: transparent;
+    border-radius: 1px;
+}
+
+.folder_folder-resumefile .file_edit_container-resumefile {
+    display: flex;
+    gap: 5px;
+    font-size: 12.5px;
+    padding-left: 10px;
+    padding-bottom: 3px;
+    padding-top: 4px;
+    cursor: default;
+    color: var(--aero-text-color);
+}
+
+
+.folder_folder-resumefile .folder_content-resumefile {
+    position: relative;
+    width: calc(100% - 8px);
+    height: calc(100% - 33px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--aero-radius-sm);
+    margin: 0 auto;
+    margin-top: 3px;
+    background: rgba(255, 255, 255, 0.85);
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.btn_option_btm_container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 35px;
+    gap: 6px;
+    padding-left: 6px;
+    bottom: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn_option_btm_container .download_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 110px;
+    height: 28px;
+    background: var(--aero-btn-gradient);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--aero-radius-sm);
+    cursor: pointer;
+    transition: all 0.12s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn_option_btm_container .download_icon:hover {
+    background: var(--aero-btn-hover);
+}
+
+.btn_option_btm_container .download_icon:active {
+    background: var(--aero-btn-active);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.btn_option_btm_container .download_icon span {
+    position: relative;
+    font-size: 11.5px;
+    white-space: nowrap;
+    right: 4px;
+    top: 0;
+    cursor: pointer;
+    color: var(--aero-text-color);
+}
+
+.btn_option_btm_container .download_icon img {
+    position: relative;
+    width: 28px;
+    right: 4px;
+    bottom: 0;
+}
+
+.btn_option_btm_container .file_resume_select-show {
+    display: grid;
+    position: absolute;
+    place-items: center;
+    padding: 4px;
+    width: 170px;
+    height: fit-content;
+    top: 2.3rem;
+    left: 5px;
+    overflow: hidden;
+    background: var(--aero-menu-bg);
+    backdrop-filter: var(--aero-blur);
+    -webkit-backdrop-filter: var(--aero-blur);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--aero-radius);
+    box-shadow: var(--aero-shadow);
+    gap: 2px;
+    z-index: 99;
+}
+
+.btn_option_btm_container .file_resume_select-hide {
+    display: none;
+}
+
+.btn_option_btm_container .btn_download_conainer {
+    display: flex;
+    position: relative;
+    width: 95%;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--aero-radius-sm);
+    cursor: pointer;
+    z-index: 9998;
+    transition: all 0.12s ease;
+}
+
+.btn_option_btm_container .btn_download_conainer:hover {
+    background: var(--aero-menu-hover);
+}
+
+.btn_option_btm_container .btn_download_conainer img {
+    position: relative;
+    width: 18px;
+    right: 2px;
+}
+
+.btn_option_btm_container .btn_download_conainer p {
+    position: relative;
+    font-size: 12px;
+    top: 0;
+    color: var(--aero-text-color);
+}
+
+
+.btn_option_btm_container .btn_Open_conainer {
+    display: flex;
+    position: relative;
+    width: 95%;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--aero-radius-sm);
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.12s ease;
+}
+
+.btn_option_btm_container .btn_Open_conainer:hover {
+    background: var(--aero-menu-hover);
+}
+
+.btn_option_btm_container .btn_Open_conainer img {
+    position: relative;
+    width: 18px;
+    right: 2px;
+}
+
+.btn_option_btm_container .btn_Open_conainer p {
+    position: relative;
+    font-size: 12px;
+    top: 0;
+    color: var(--aero-text-color);
+}
+
+.btn_download_conainer:active,
+.btn_Open_conainer:active {
+    background: rgba(60, 120, 210, 0.3) !important;
+}
+
+@media screen and (width <= 500px) {
+    .folder_folder-resumefile {
+        width: 85%;
+    }
+}
+
+@media screen and (width >= 500px) {
+    .folder_folder-resumefile {
+        width: 500px;
+    }
+}
+@media screen and (width >= 1000px) {
+    .folder_folder-resumefile {
+        width: 650px;
+    }
+}
+
+
+iframe {
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--aero-radius-sm);
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) and (min-width: 0px) {
+    .folder_barbtn-resumefile .x-resumefile {      
+        left: 0;
+    }
+}
