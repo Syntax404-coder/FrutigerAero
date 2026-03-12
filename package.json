@@ -2,7 +2,7 @@
   "homepage": "https://yuteoctober.github.io/wins95Portfolio/",
   "name": "windows95portfolio",
   "private": true,
-  "version": "3.1.1",
+  "version": "3.1.2",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",

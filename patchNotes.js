@@ -1,5 +1,21 @@
 const patchNotes = [
   {
+    head: "**Aero Design Enhancement (3.1.2 - Shame Release)**",
+    date: "2026-03-12",
+    notes: [
+      "Enhanced titlebar styling with improved blue gradients and inset shadows",
+      "Refined window control buttons (minimize, maximize, close) to 44x28px with sophisticated multi-layer gradients",
+      "Updated button styling to match authentic Windows Vista Aero appearance with proper color values (rgb 245, 225, 210, 195)",
+      "Improved button hover states with light blue gradients (rgb 235-245-255 to 180-212-245)",
+      "Enhanced active/pressed button states with darker blue gradients and inset shadows for depth",
+      "Refined close button with authentic red gradient (rgb 255-200-200 to 210-50-50)",
+      "Updated taskbar styling with improved glass gradient background and better visual depth",
+      "Enhanced start button with deeper shadows and refined gloss reflection effect",
+      "Applied consistent Aero design refinements across all window components (MyBioFolder, ResumeFolder, ProjectFolder, MailFolder, MSN)",
+      "Improved button shadows with precise inset highlighting and subtle outer shadows for natural Vista appearance"
+    ]
+  },
+  {
     head: "**MSN**",
     date: "2026-02-28",
     notes: [
