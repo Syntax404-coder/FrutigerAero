@@ -233,12 +233,12 @@
     position: absolute;
     width: calc(100% - 49px);
     height: fit-content;
-    background: var(--aero-menu-bg);
+    background: linear-gradient(180deg, rgba(220, 230, 240, 0.25) 0%, rgba(180, 190, 210, 0.3) 48%, rgba(100, 120, 150, 0.35) 50%, rgba(80, 100, 140, 0.4) 100%);
     backdrop-filter: var(--aero-blur);
     -webkit-backdrop-filter: var(--aero-blur);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: var(--aero-radius-sm);
-    box-shadow: var(--aero-shadow-sm);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.7);
     padding: 4px;
     top: 1.55rem;
     right: 1px;
