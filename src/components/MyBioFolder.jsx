@@ -125,7 +125,7 @@ function MyBioFolder() {
             }}
             style={ MybioExpand.expand ? inlineStyleExpand('About') : inlineStyle('About')}>
           <div className="folder_dragbar"
-             style={{ background: MybioExpand.focusItem? themeDragBar : '#757579'}}
+             style={{ background: MybioExpand.focusItem? themeDragBar : 'rgba(180, 190, 210, 0.3)'}}
           >
             <div className="bio_barname">
               <img src={About} alt="About" />

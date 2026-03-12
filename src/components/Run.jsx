@@ -169,7 +169,7 @@ function Run() {
           <div className="folder_dragbar_run"
               onDoubleClick={handleExpandStateToggle}
               onTouchStart={handleExpandStateToggleMobile}
-             style={{ background: RunExpand.focusItem? themeDragBar : '#757579'}}
+             style={{ background: RunExpand.focusItem? themeDragBar : 'rgba(180, 190, 210, 0.3)'}}
           >
             <div className="folder_barname_run">
               <span>Run</span>

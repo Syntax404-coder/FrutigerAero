@@ -105,7 +105,7 @@ const form = useRef();
           <div className="folder_dragbar-mail"
               onDoubleClick={handleExpandStateToggle}
               onTouchStart={handleExpandStateToggleMobile}
-             style={{ background: MailExpand.focusItem? themeDragBar : '#757579'}}
+             style={{ background: MailExpand.focusItem? themeDragBar : 'rgba(180, 190, 210, 0.3)'}}
           >
             <div className="folder_barname-mail">
               <img src={Mail} alt="Mail" />

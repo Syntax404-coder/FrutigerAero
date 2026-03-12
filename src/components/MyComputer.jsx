@@ -210,7 +210,7 @@ function MyComputer() {
         <div className="folder_dragbar"
           onDoubleClick={handleExpandStateToggle}
           onTouchStart={handleExpandStateToggleMobile}
-          style={{ background: MyComputerExpand.focusItem ? themeDragBar : '#757579' }}
+          style={{ background: MyComputerExpand.focusItem ? themeDragBar : 'rgba(180, 190, 210, 0.3)' }}
         >
           <div className="folder_barname">
             <img src={imageMapping(selectedFolder.label) === null ? imageMapping(selectedFolder.label, 'folder') : imageMapping(selectedFolder.label)} alt="" />

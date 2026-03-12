@@ -148,7 +148,7 @@ function EmptyFolder({state, setState, refState, folderName, photoMode, paintMod
         <div className="folder_dragbar"
           onDoubleClick={handleExpandStateToggle}
           onTouchStart={handleExpandStateToggleMobile}
-          style={{ background: state.focusItem ? themeDragBar : '#757579' }}
+          style={{ background: state.focusItem ? themeDragBar : 'rgba(180, 190, 210, 0.3)' }}
         >
           <div className="folder_barname">
           <img 

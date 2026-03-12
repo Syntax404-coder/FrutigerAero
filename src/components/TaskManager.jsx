@@ -78,7 +78,7 @@ function TaskManager() {
             }}
             style={ TaskManagerExpand.expand ? inlineStyleExpand('TaskManager') : inlineStyle('TaskManager')}>
           <div className="folder_dragbar"
-             style={{ background: TaskManagerExpand.focusItem? themeDragBar : '#757579'}}
+             style={{ background: TaskManagerExpand.focusItem? themeDragBar : 'rgba(180, 190, 210, 0.3)'}}
           >
             <div className="folder_barname">
               <img src={imageMapping('TaskManager')} alt="" style={{ width: '16px'}} />

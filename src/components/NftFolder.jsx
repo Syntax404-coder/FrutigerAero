@@ -83,7 +83,7 @@ function NftFolder() {
           <div className="folder_dragbar"
               onDoubleClick={handleExpandStateToggle}
               onTouchStart={handleExpandStateToggleMobile}
-             style={{ background: NftExpand.focusItem? themeDragBar : '#757579'}}
+             style={{ background: NftExpand.focusItem? themeDragBar : 'rgba(180, 190, 210, 0.3)'}}
           >
             <div className="folder_barname">
               <img src={folder} alt="folder" />

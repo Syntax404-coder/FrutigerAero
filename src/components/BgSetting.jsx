@@ -262,7 +262,7 @@ function BgSetting() {
             }}
             style={ BgSettingExpand.expand ? inlineStyleExpand('Settings') : inlineStyle('Settings')}>
           <div className="folder_dragbar_bgsetting"
-             style={{ background: BgSettingExpand.focusItem? themeDragBar : '#757579'}}
+             style={{ background: BgSettingExpand.focusItem? themeDragBar : 'rgba(180, 190, 210, 0.3)'}}
           >
             <div className="bgsetting_barname">
               <img src={settingIcon} alt="" />

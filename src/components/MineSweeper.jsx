@@ -245,7 +245,7 @@ function MineSweeper() {
           <div className="folder_dragbar-MineSweeper"
               // onDoubleClick={handleExpandStateToggle}
               // onTouchStart={handleExpandStateToggleMobile}
-             style={{ background: MineSweeperExpand.focusItem? themeDragBar : '#757579'}}
+             style={{ background: MineSweeperExpand.focusItem? themeDragBar : 'rgba(180, 190, 210, 0.3)'}}
           >
             <div className="folder_barname-MineSweeper">
               <img src={MineSweeperPic} alt="MineSweeper" />

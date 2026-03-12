@@ -180,7 +180,7 @@ useEffect(() => {
           <div className={userName ? 'Username_input_div_active' : 'Username_input_div_disabled'}>
             <div className="container_username">
               <div className="form_banner"
-                style={{ background: MSNExpand.focusItem ? themeDragBar : '#757579' }}
+                style={{ background: MSNExpand.focusItem ? themeDragBar : 'rgba(180, 190, 210, 0.3)' }}
               >
                 <img src={chat} alt="chat" />
                 <p className='username_text_banner'>
@@ -228,7 +228,7 @@ useEffect(() => {
           <div className="folder_dragbar-MSN"
             onDoubleClick={handleExpandStateToggle}
             onTouchStart={handleExpandStateToggleMobile}
-            style={{ background: MSNExpand.focusItem ? themeDragBar : '#757579' }}
+            style={{ background: MSNExpand.focusItem ? themeDragBar : 'rgba(180, 190, 210, 0.3)' }}
           >
             <div className="folder_barname-MSN">
               <img src={msnPic} alt="msnPic" />

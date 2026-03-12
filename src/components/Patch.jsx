@@ -64,7 +64,7 @@ function Patch() {
             }}
             >
           <div className="folder_dragbar-resumefile"
-             style={{ background: PatchExpand.focusItem? themeDragBar : '#757579'}}
+             style={{ background: PatchExpand.focusItem? themeDragBar : 'rgba(180, 190, 210, 0.3)'}}
           >
             <div className="folder_barname-resumefile">
                 <img src={imageMapping('Patch')} alt="Patch" />
