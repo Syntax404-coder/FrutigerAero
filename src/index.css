@@ -1,24 +1,25 @@
 
 /* =========================================
    FRUTIGER AERO / WINDOWS VISTA THEME
+   daedalOS-Inspired Redesign
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap');
 
 :root {
-    /* --- Authentic Vista Aero Tokens --- */
-    --aero-glass-bg: rgba(20, 50, 60, 0.45);
-    --aero-glass-bg-strong: rgba(10, 20, 30, 0.70);
+    /* --- Enhanced Aero Glass Tokens --- */
+    --aero-glass-bg: rgba(120, 170, 220, 0.15);
+    --aero-glass-bg-strong: rgba(80, 130, 190, 0.22);
     --aero-glass-border: rgba(255, 255, 255, 0.50);
     --aero-glass-border-inner: rgba(255, 255, 255, 0.25);
-    --aero-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    --aero-shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.4);
-    --aero-title-gradient: linear-gradient(180deg, rgba(176, 207, 245, 0.9) 0%, rgba(112, 168, 230, 0.85) 50%, rgba(80, 140, 200, 0.9) 100%);
-    --aero-title-gradient-inactive: linear-gradient(180deg, rgba(220, 230, 240, 0.4) 0%, rgba(200, 215, 230, 0.2) 45%, rgba(120, 140, 160, 0.1) 50%, rgba(100, 120, 140, 0.15) 100%);
+    --aero-shadow: 0 12px 48px rgba(0, 0, 0, 0.40), 0 4px 16px rgba(0, 0, 0, 0.20);
+    --aero-shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.25);
+    --aero-title-gradient: linear-gradient(180deg, rgba(176, 207, 245, 0.50) 0%, rgba(140, 180, 230, 0.40) 40%, rgba(100, 155, 215, 0.30) 50%, rgba(120, 165, 220, 0.35) 100%);
+    --aero-title-gradient-inactive: linear-gradient(180deg, rgba(200, 210, 220, 0.20) 0%, rgba(180, 195, 210, 0.12) 50%, rgba(160, 175, 195, 0.10) 100%);
     --aero-title-inactive-color: rgba(180, 190, 210, 0.3);
-    --aero-btn-gradient: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.3) 48%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.2) 100%);
-    --aero-btn-hover: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(200,230,255,0.6) 48%, rgba(150,200,255,0.4) 50%, rgba(200,230,255,0.6) 100%);
-    --aero-btn-active: linear-gradient(180deg, rgba(150,150,150,0.6) 0%, rgba(100,100,100,0.3) 48%, rgba(50,50,50,0.3) 50%, rgba(100,100,100,0.4) 100%);
+    --aero-btn-gradient: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(240,245,250,0.60) 45%, rgba(210,220,230,0.50) 50%, rgba(195,210,225,0.55) 100%);
+    --aero-btn-hover: linear-gradient(180deg, rgba(220,235,255,0.90) 0%, rgba(190,215,245,0.80) 45%, rgba(160,200,240,0.70) 50%, rgba(140,185,235,0.75) 100%);
+    --aero-btn-active: linear-gradient(180deg, rgba(180,200,230,0.70) 0%, rgba(150,180,220,0.60) 50%, rgba(140,175,215,0.65) 100%);
     --aero-radius: 8px;
     --aero-radius-sm: 4px;
     --aero-text-color: #000000;
@@ -26,13 +27,19 @@
     --aero-blur: blur(20px);
     --aero-blur-heavy: blur(30px);
     --aero-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.8), inset 0 0 2px rgba(255, 255, 255, 0.5);
-    --aero-close-bg: linear-gradient(180deg, rgba(255,150,150,0.8) 0%, rgba(255,50,50,0.8) 48%, rgba(200,0,0,0.8) 50%, rgba(220,50,50,0.8) 100%);
-    --aero-close-hover: linear-gradient(180deg, rgba(255,200,200,0.9) 0%, rgba(255,100,100,0.9) 48%, rgba(255,0,0,0.9) 50%, rgba(255,100,100,0.9) 100%);
-    --aero-start-gradient: radial-gradient(circle at 30% 30%, #a4e5f2 0%, #3086c9 40%, #082d6b 80%, #001036 100%);
-    --aero-taskbar-bg: rgba(0, 5, 10, 0.65);
-    --aero-menu-bg: linear-gradient(180deg, rgba(220, 230, 240, 0.25) 0%, rgba(180, 190, 210, 0.3) 48%, rgba(100, 120, 150, 0.35) 50%, rgba(80, 100, 140, 0.4) 100%);
-    --aero-menu-hover: rgba(220, 240, 255, 0.5);
-    --aero-focus-bg: rgba(80, 160, 240, 0.5);
+    --aero-close-bg: linear-gradient(180deg, rgba(255,120,100,0.95) 0%, rgba(230,70,50,0.90) 45%, rgba(200,40,30,0.90) 50%, rgba(180,30,20,0.95) 100%);
+    --aero-close-hover: linear-gradient(180deg, rgba(255,160,140,1) 0%, rgba(255,100,80,0.95) 45%, rgba(240,60,40,0.95) 50%, rgba(220,50,35,1) 100%);
+    --aero-start-gradient: radial-gradient(circle at 35% 30%, #6dd5f5 0%, #2a8ee6 30%, #1560b8 55%, #0a3478 80%, #001945 100%);
+    --aero-taskbar-bg: rgba(0, 8, 20, 0.72);
+    --aero-menu-bg: linear-gradient(180deg, rgba(200, 220, 240, 0.30) 0%, rgba(160, 185, 215, 0.28) 48%, rgba(120, 155, 195, 0.30) 50%, rgba(100, 140, 185, 0.32) 100%);
+    --aero-menu-hover: linear-gradient(180deg, rgba(180, 215, 255, 0.45) 0%, rgba(140, 190, 250, 0.35) 100%);
+    --aero-focus-bg: rgba(60, 130, 230, 0.30);
+}
+
+/* --- Glass shimmer animation --- */
+@keyframes glassShimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
 }
 
 #root {
@@ -106,6 +113,17 @@ body {
     background-position: center;
     overflow: hidden;
     color: var(--aero-text-color);
+    /* Vista Aero cursors */
+    cursor: url('./assets/vista-cursors/aero_arrow.cur'), default;
+}
+
+/* Vista cursor overrides */
+a, button, [role="button"], .btn_start, .start_tap, .icon {
+    cursor: url('./assets/vista-cursors/aero_link.cur'), pointer;
+}
+
+input, textarea {
+    cursor: url('./assets/vista-cursors/aero_pen.cur'), text;
 }
 
 a {
@@ -173,47 +191,84 @@ select {
     height: 40px;
     width: 100%;
     bottom: 0;
-    /* Lighter semi-translucent frosted glass */
-    background: linear-gradient(180deg, rgba(220, 230, 240, 0.2) 0%, rgba(180, 190, 210, 0.3) 48%, rgba(60, 70, 90, 0.45) 50%, rgba(20, 30, 50, 0.55) 100%);
-    backdrop-filter: var(--aero-blur-heavy);
-    -webkit-backdrop-filter: var(--aero-blur-heavy);
-    border-top: 1px solid rgba(255, 255, 255, 0.45);
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    /* Deep frosted Aero taskbar — daedalOS-inspired multi-layer */
+    background: 
+        linear-gradient(180deg, 
+            rgba(160, 190, 220, 0.18) 0%, 
+            rgba(100, 140, 190, 0.14) 35%, 
+            rgba(40, 70, 110, 0.35) 50%, 
+            rgba(10, 25, 50, 0.55) 75%,
+            rgba(5, 15, 35, 0.65) 100%
+        );
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    border-top: 1px solid rgba(180, 210, 240, 0.45);
+    box-shadow: 
+        0 -4px 20px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     align-items: center;
     z-index: 999999999;
 }
 
-/* Vista Taskbar Glossy Top Half */
+/* Vista Taskbar Glossy Top Half — Enhanced */
 .footer::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 50%;
-    background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.05) 100%);
+    height: 48%;
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.30) 0%, 
+        rgba(255, 255, 255, 0.08) 60%,
+        rgba(255, 255, 255, 0) 100%
+    );
     pointer-events: none;
     z-index: 1;
+}
+
+/* Subtle animated glass shimmer on taskbar */
+.footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.03) 25%, 
+        rgba(255, 255, 255, 0.06) 50%, 
+        rgba(255, 255, 255, 0.03) 75%, 
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: glassShimmer 12s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .footer .btn_start {
     display: flex;
     position: absolute;
-    bottom: -6px; /* Protrudes evenly */
+    bottom: -5px;
     left: 2px;
-    height: 50px;
-    width: 50px;
+    height: 48px;
+    width: 48px;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background: var(--aero-start-gradient);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7), 
-                inset 0 2px 8px rgba(255, 255, 255, 0.9), 
-                inset 0 -8px 16px rgba(0, 0, 0, 0.8),
-                inset 0 1px 3px rgba(255, 255, 255, 0.4);
-    cursor: pointer;
-    transition: all 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1.5px solid rgba(130, 200, 255, 0.40);
+    box-shadow: 
+        0 4px 16px rgba(0, 100, 200, 0.50),
+        0 2px 8px rgba(0, 0, 0, 0.40),
+        inset 0 2px 6px rgba(255, 255, 255, 0.70),
+        inset 0 -6px 14px rgba(0, 0, 0, 0.60),
+        inset 0 0 2px rgba(100, 200, 255, 0.30);
+    cursor: url('./assets/vista-cursors/aero_link.cur'), pointer;
+    transition: all 0.20s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -221,40 +276,52 @@ select {
     z-index: 10;
 }
 
-/* Authentic Vista Orb Gloss Reflection */
+/* Vista Orb — Enhanced Gloss Reflection */
 .footer .btn_start::after {
     content: '';
     position: absolute;
-    top: 2%;
-    left: 15%;
-    width: 70%;
-    height: 45%;
-    border-radius: 50% 50% 20% 20%;
-    background: linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.1) 100%);
+    top: 3%;
+    left: 14%;
+    width: 72%;
+    height: 42%;
+    border-radius: 50% 50% 25% 25%;
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.80) 0%, 
+        rgba(255, 255, 255, 0.20) 60%,
+        rgba(255, 255, 255, 0) 100%
+    );
     pointer-events: none;
     z-index: 11;
 }
 
 .footer .btn_start:hover {
-    box-shadow: 0 8px 20px rgba(100, 200, 255, 0.9), 
-                inset 0 2px 8px rgba(255, 255, 255, 1), 
-                inset 0 -8px 16px rgba(0, 0, 0, 0.7);
+    box-shadow: 
+        0 0 24px rgba(80, 180, 255, 0.70),
+        0 4px 16px rgba(0, 100, 200, 0.60),
+        inset 0 2px 6px rgba(255, 255, 255, 0.90),
+        inset 0 -6px 14px rgba(0, 0, 0, 0.50),
+        inset 0 0 4px rgba(100, 200, 255, 0.50);
+    border-color: rgba(150, 220, 255, 0.60);
+    transform: scale(1.04);
 }
 
 .footer .btn_start.active {
-    box-shadow: 0 4px 10px rgba(100, 200, 255, 0.6), 
-                inset 0 4px 10px rgba(0, 0, 0, 0.5), 
-                inset 0 -2px 8px rgba(0, 0, 0, 0.7),
-                inset 0 1px 2px rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+        0 0 16px rgba(80, 180, 255, 0.50),
+        0 2px 8px rgba(0, 0, 0, 0.40),
+        inset 0 3px 8px rgba(0, 0, 0, 0.40),
+        inset 0 -4px 10px rgba(0, 0, 0, 0.50),
+        inset 0 1px 2px rgba(255, 255, 255, 0.30);
+    border-color: rgba(100, 180, 250, 0.35);
+    transform: scale(0.97);
 }
 
 
 .footer .btn_start img {
     position: relative;
-    width: 26px; /* Larger icon inside the protruding orb */
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
-    z-index: 12; /* Above the gloss */
+    width: 24px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.50));
+    z-index: 12;
 }
 
 .footer .btn_start h4 {
@@ -343,12 +410,26 @@ select {
     width: 320px;
     bottom: 42px;
     left: 0px;
-    background: linear-gradient(180deg, rgba(220, 230, 240, 0.25) 0%, rgba(180, 190, 210, 0.3) 48%, rgba(100, 120, 150, 0.35) 50%, rgba(80, 100, 140, 0.4) 100%);
-    backdrop-filter: var(--aero-blur-heavy);
-    -webkit-backdrop-filter: var(--aero-blur-heavy);
-    border-radius: var(--aero-radius) var(--aero-radius) 0 0;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    /* Deep Aero glass start menu */
+    background: 
+        linear-gradient(180deg, 
+            rgba(180, 210, 240, 0.28) 0%, 
+            rgba(150, 185, 225, 0.25) 30%, 
+            rgba(120, 160, 210, 0.22) 50%, 
+            rgba(100, 145, 200, 0.25) 70%,
+            rgba(80, 125, 185, 0.28) 100%
+        );
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border-radius: 8px 8px 0 0;
+    border: 1px solid rgba(180, 220, 255, 0.50);
+    border-bottom: none;
+    box-shadow: 
+        0 -8px 32px rgba(0, 0, 0, 0.25),
+        0 -2px 12px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65),
+        inset 1px 0 0 rgba(255, 255, 255, 0.20),
+        inset -1px 0 0 rgba(255, 255, 255, 0.20);
     grid-template-areas:
         'sidebar winamp'
         'sidebar tile'
@@ -360,6 +441,13 @@ select {
         'sidebar groove'
         'sidebar shutdown';
     overflow: hidden;
+    /* Slide-up animation */
+    animation: startMenuSlide 0.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes startMenuSlide {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -520,16 +608,26 @@ select {
     position: relative;
     align-items: center;
     gap: 5px;
-    height: 32px;
+    height: 30px;
     max-width: 170px;
     min-width: 30px;
     width: 170px;
     padding: 0px 8px;
-    cursor: default;
-    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 48%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0,0,0,0.2);
+    cursor: url('./assets/vista-cursors/aero_link.cur'), pointer;
+    /* Aero glass taskbar button */
+    background: 
+        linear-gradient(180deg, 
+            rgba(180, 210, 240, 0.12) 0%, 
+            rgba(120, 160, 210, 0.08) 45%, 
+            rgba(40, 70, 120, 0.18) 50%, 
+            rgba(20, 45, 90, 0.22) 100%
+        );
+    border: 1px solid rgba(120, 180, 240, 0.20);
+    border-radius: 3px;
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.10),
+        0 1px 2px rgba(0, 0, 0, 0.15);
     transition: all 0.15s ease;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -539,15 +637,31 @@ select {
 }
 
 .start_tap:hover {
-    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 48%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.25) 100%);
-    border-color: rgba(255, 255, 255, 0.5);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.3);
+    background: 
+        linear-gradient(180deg, 
+            rgba(180, 215, 255, 0.25) 0%, 
+            rgba(140, 190, 250, 0.18) 45%, 
+            rgba(100, 160, 230, 0.22) 50%, 
+            rgba(120, 170, 240, 0.28) 100%
+        );
+    border-color: rgba(140, 200, 255, 0.45);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.50),
+        0 0 10px rgba(100, 180, 255, 0.20);
 }
 
 .start_tap.active {
-    background: linear-gradient(180deg, rgba(150,150,150,0.3) 0%, rgba(100,100,100,0.3) 48%, rgba(50,50,50,0.4) 50%, rgba(100,100,100,0.5) 100%);
-    border-color: rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255,255,255,0.2);
+    background: 
+        linear-gradient(180deg, 
+            rgba(100, 140, 190, 0.30) 0%, 
+            rgba(60, 100, 160, 0.25) 48%, 
+            rgba(30, 60, 110, 0.35) 50%, 
+            rgba(40, 70, 120, 0.40) 100%
+        );
+    border-color: rgba(80, 140, 220, 0.45);
+    box-shadow: 
+        inset 0 2px 6px rgba(0, 0, 0, 0.30),
+        0 0 8px rgba(80, 160, 240, 0.15);
 }
 
 .start_tap p {
@@ -555,9 +669,10 @@ select {
     white-space: nowrap;
     overflow: hidden;
     color: var(--aero-text-light);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    font-size: 11.5px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.50);
+    font-size: 11px;
     font-weight: 400;
+    letter-spacing: 0.2px;
 }
 
 @media screen and (width <= 800px){
@@ -799,66 +914,80 @@ select {
     display: grid;
     position: relative;
     place-items: center;
-    height: 74px;
-    width: 68px;
-    gap: 3px;
-    margin-bottom: .9rem;
-    cursor: default;
+    height: 76px;
+    width: 72px;
+    gap: 4px;
+    margin-bottom: .8rem;
+    cursor: url('./assets/vista-cursors/aero_link.cur'), pointer;
     z-index: 1;
-    animation: refreshIcon 0.15s ease;
+    animation: refreshIcon 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    border-radius: 4px;
+    padding: 4px 2px;
+    transition: background 0.15s ease;
+}
+
+.icon:hover {
+    background: rgba(120, 180, 255, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(120, 180, 255, 0.20);
 }
 
 @keyframes refreshIcon {
     0% {
         opacity: 0;
-        transform: scale(0.95);
+        transform: scale(0.90) translateY(4px);
     }
     100% {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) translateY(0);
     }
 }
 
 .icon img {
     position: relative;
-    width: 40px;
+    width: 42px;
     pointer-events: none;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
-    transition: filter 0.15s ease;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.30));
+    transition: all 0.18s ease;
 }
 
 .icon:hover img {
-    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.35));
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+    transform: scale(1.05);
 }
 
 .icon .img_focus {
-    filter: brightness(1.1) drop-shadow(0 2px 8px rgba(60, 120, 210, 0.5));
+    filter: brightness(1.08) drop-shadow(0 3px 10px rgba(60, 140, 230, 0.50));
 }
 
 .icon p {
     position: relative;
-    font-size: 11.5px;
+    font-size: 11px;
     color: white;
-    padding-left: 1px; 
-    padding-top: 1px;
+    padding: 1px 4px;
     border: 1px solid transparent;
     border-radius: 3px;
     text-align: center;
     line-height: 13px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), 0 0 6px rgba(0, 0, 0, 0.3);
+    text-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.80), 
+        0 0 8px rgba(0, 0, 0, 0.40);
     font-weight: 400;
+    letter-spacing: 0.2px;
+    max-width: 70px;
+    word-wrap: break-word;
 }
 
 .icon .p_focus {
-    background: var(--aero-focus-bg);
-    border: 1px solid rgba(80, 140, 220, 0.6);
+    background: rgba(60, 130, 230, 0.30);
+    border: 1px solid rgba(80, 150, 235, 0.50);
     border-radius: 3px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.60);
 }
 
 .icon:active {
-    opacity: 0.85;
+    opacity: 0.88;
     z-index: 999999999999999;
+    transform: scale(0.96);
 }
 
 

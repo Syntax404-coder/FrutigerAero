@@ -1,192 +1,296 @@
 /* =========================================
-   RESUME FOLDER — Aero Glass Window
+   WINDOW CHROME — daedalOS-Inspired Aero Glass
    ========================================= */
+
+/* ----------- Window Container ----------- */
 
 .folder_folder {
     display: none;
     position: fixed;
-    width: 400px;
-    min-width: 250px;
-    min-height: 250px;
-    height: 320px;
-    background: var(--aero-glass-bg-strong);
-    backdrop-filter: var(--aero-blur-heavy);
-    -webkit-backdrop-filter: var(--aero-blur-heavy);
-    border: 1px solid rgba(0, 5, 10, 0.6);
-    border-radius: var(--aero-radius);
+    width: 420px;
+    min-width: 260px;
+    min-height: 260px;
+    height: 340px;
+    /* Deep frosted Aero glass — multi-layered */
+    background: 
+        linear-gradient(180deg, 
+            rgba(200, 220, 240, 0.22) 0%, 
+            rgba(160, 190, 220, 0.18) 3%, 
+            rgba(120, 160, 200, 0.12) 10%, 
+            rgba(80, 120, 180, 0.10) 50%, 
+            rgba(60, 100, 160, 0.14) 100%
+        );
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    /* Authentic Aero border — multiple inset glows */
+    border: 1px solid rgba(120, 180, 255, 0.35);
+    border-top: 1px solid rgba(200, 230, 255, 0.6);
+    border-radius: 8px;
+    /* daedalOS-style deep shadow + glass edge glow */
     box-shadow: 
-        inset 0 1px 0 rgba(255, 255, 255, 0.85),
-        inset 1px 0 0 rgba(255, 255, 255, 0.4),
-        inset -1px 0 0 rgba(255, 255, 255, 0.4),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.3),
-        inset 0 25px 40px rgba(255, 255, 255, 0.15),
-        var(--aero-shadow);
+        /* Outer drop shadow */
+        0 12px 48px rgba(0, 0, 0, 0.45),
+        0 4px 16px rgba(0, 0, 0, 0.25),
+        /* Glass edge highlights */
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 1px 0 0 rgba(255, 255, 255, 0.25),
+        inset -1px 0 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15),
+        /* Inner glass refraction glow */
+        inset 0 30px 60px rgba(255, 255, 255, 0.08);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     resize: both;
     overflow: hidden;
+    /* Opening animation */
+    animation: windowOpen 0.25s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes windowOpen {
+    0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 .folder_folder.photo_mode {
-    min-width: 260px;
-    width: 450px;
-    height: 380px;
+    min-width: 280px;
+    width: 480px;
+    height: 400px;
 }
 
 .folder_folder.paint_mode {
-    min-width: 260px;
-    width: 450px;
-    height: 380px;
+    min-width: 280px;
+    width: 480px;
+    height: 400px;
 }
 
 
 @media screen and (max-width: 450px) {
     .folder_folder {
-        width: 84%;
+        width: 88%;
         min-width: 300px;
     }
     .folder_folder.photo_mode {
-        width: 90%;
+        width: 92%;
         height: 300px;
     }
     .folder_folder.paint_mode {
-        width: 90%;
+        width: 92%;
         height: 370px;
     }
 }
 
+/* ----------- Title Bar / Drag Bar ----------- */
+
 .folder_folder .folder_dragbar {
-   display: flex;
-   position: relative;
-   height: 32px;
-   width: 100%;
-   background: linear-gradient(to bottom, rgba(0, 120, 215, 0.9), rgba(0, 80, 160, 0.8));
-   border-radius: var(--aero-radius) var(--aero-radius) 0 0;
-   align-items: center;
-   justify-content: space-between;
-   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-   box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.1);
-   -webkit-user-select: none;
-   -moz-user-select: none;
-   -ms-user-select: none;
-   user-select: none;
+    display: flex;
+    position: relative;
+    height: 30px;
+    width: 100%;
+    /* Vista Aero title bar gradient — layered translucent glass */
+    background: 
+        linear-gradient(180deg, 
+            rgba(180, 210, 240, 0.45) 0%,
+            rgba(140, 180, 220, 0.35) 40%,
+            rgba(100, 150, 200, 0.25) 50%,
+            rgba(120, 160, 210, 0.30) 100%
+        );
+    border-radius: 7px 7px 0 0;
+    align-items: center;
+    justify-content: space-between;
+    /* Glass top reflection */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.65),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+/* Top-half gloss reflection (Vista signature) */
+.folder_folder .folder_dragbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.35) 0%, 
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    border-radius: 7px 7px 0 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.folder_barname {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .folder_barname img {
     position: relative;
     width: 16px;
-    top: 1px;
+    top: 0px;
     margin-left: 8px;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .folder_barname span {
     position: relative;
-    font-size: 13px;
-    color: var(--aero-text-light);
+    font-size: 12px;
+    color: #111;
     margin-left: 6px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     font-weight: 400;
+    letter-spacing: 0.2px;
 }
+
+
+/* ----------- Window Control Buttons ----------- */
 
 .folder_folder .folder_barbtn {
     display: flex;
     position: relative;
-    margin-right: 6px;
-    gap: 3px;
+    margin-right: 4px;
+    gap: 2px;
+    z-index: 1;
 }
 
+/* Individual window button base */
 .folder_barbtn div {
-    width: 44px;
-    height: 28px;
-    background: linear-gradient(to bottom, 
-        rgba(245, 245, 245, 1) 0%, 
-        rgba(225, 225, 225, 1) 45%, 
-        rgba(210, 210, 210, 1) 50%, 
-        rgba(195, 195, 195, 1) 100%);
-    border: 1px solid rgba(100, 100, 100, 0.5);
+    width: 28px;
+    height: 20px;
+    /* Glassy pill button */
+    background: 
+        linear-gradient(180deg, 
+            rgba(255, 255, 255, 0.75) 0%,
+            rgba(240, 245, 250, 0.60) 45%,
+            rgba(210, 220, 230, 0.50) 50%,
+            rgba(195, 210, 225, 0.55) 100%
+        );
+    border: 1px solid rgba(100, 120, 160, 0.35);
     border-radius: 3px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 
-                inset 0 -1px 0 rgba(0, 0, 0, 0.1),
-                0 1px 1px rgba(0, 0, 0, 0.08);
+    transition: all 0.12s ease;
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 1px 2px rgba(0, 0, 0, 0.08);
     font-weight: normal;
     font-size: 11px;
 }
 
 .folder_barbtn div:hover {
-    background: linear-gradient(to bottom, 
-        rgba(235, 245, 255, 1) 0%, 
-        rgba(210, 232, 250, 1) 45%, 
-        rgba(195, 222, 248, 1) 50%, 
-        rgba(180, 212, 245, 1) 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 
-                inset 0 -1px 0 rgba(0, 0, 0, 0.08),
-                0 1px 2px rgba(0, 120, 215, 0.15);
+    background: 
+        linear-gradient(180deg, 
+            rgba(220, 235, 255, 0.90) 0%,
+            rgba(190, 215, 245, 0.80) 45%,
+            rgba(160, 200, 240, 0.70) 50%,
+            rgba(140, 185, 235, 0.75) 100%
+        );
+    border-color: rgba(80, 140, 220, 0.50);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        0 0 6px rgba(100, 180, 255, 0.25),
+        0 1px 3px rgba(0, 0, 0, 0.10);
 }
 
 .folder_barbtn div:not(.expand):active {
-    background: linear-gradient(to bottom, 
-        rgba(215, 235, 250, 1) 0%, 
-        rgba(190, 220, 245, 1) 45%, 
-        rgba(175, 210, 243, 1) 50%, 
-        rgba(160, 200, 240, 1) 100%);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 
-                inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+    background: 
+        linear-gradient(180deg, 
+            rgba(180, 200, 230, 0.80) 0%,
+            rgba(150, 180, 220, 0.70) 45%,
+            rgba(130, 165, 210, 0.65) 50%,
+            rgba(140, 175, 215, 0.70) 100%
+        );
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+    transform: scale(0.95);
 }
 
+/* Close button — Red Aero gradient */
 .folder_barbtn .x {
     position: relative;
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     bottom: 0;
+    line-height: 1;
     color: white;
-    background: linear-gradient(to bottom, 
-        rgba(255, 200, 200, 1) 0%, 
-        rgba(245, 120, 120, 1) 45%, 
-        rgba(230, 80, 80, 1) 50%, 
-        rgba(210, 50, 50, 1) 100%);
-    border: 1px solid rgba(140, 20, 20, 0.8);
+    background: 
+        linear-gradient(180deg, 
+            rgba(255, 120, 100, 0.95) 0%,
+            rgba(230, 70, 50, 0.90) 45%,
+            rgba(200, 40, 30, 0.90) 50%,
+            rgba(180, 30, 20, 0.95) 100%
+        );
+    border: 1px solid rgba(120, 20, 10, 0.70);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .folder_barbtn .x:hover {
-    background: linear-gradient(to bottom, 
-        rgba(255, 220, 220, 1) 0%, 
-        rgba(255, 140, 140, 1) 45%, 
-        rgba(250, 100, 100, 1) 50%, 
-        rgba(235, 60, 60, 1) 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 
-                inset 0 -1px 0 rgba(0, 0, 0, 0.15),
-                0 1px 2px rgba(200, 0, 0, 0.2);
+    background: 
+        linear-gradient(180deg, 
+            rgba(255, 160, 140, 1) 0%,
+            rgba(255, 100, 80, 0.95) 45%,
+            rgba(240, 60, 40, 0.95) 50%,
+            rgba(220, 50, 35, 1) 100%
+        );
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        0 0 8px rgba(255, 60, 40, 0.35),
+        0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.folder_barbtn .x:active {
+    background: 
+        linear-gradient(180deg, 
+            rgba(180, 50, 40, 1) 0%,
+            rgba(160, 35, 25, 0.95) 50%,
+            rgba(140, 25, 15, 1) 100%
+        );
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    transform: scale(0.92);
 }
 
 /* support only safari */
 @supports (-webkit-touch-callout: none) {
     .folder_barbtn .x {
-        bottom: 0; 
+        bottom: 0;
         left: 0;
     }
 }
 
+/* Minimize dash */
 .folder_barbtn .dash {
     position: relative;
     width: 10px;
     top: 0;
     margin: 0 auto;
-    border-bottom: 2px solid var(--aero-text-color);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.65);
 }
+
+/* Maximize/Restore icons */
 .folder_barbtn .expand {
     position: relative;
-    width: 10px;
-    height: 10px;
-    border: 1px solid var(--aero-text-color);
-    border-top: 2px solid var(--aero-text-color);
+    width: 9px;
+    height: 9px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    border-top: 2px solid rgba(0, 0, 0, 0.60);
     box-shadow: none;
     margin: 0 auto;
     top: 0;
@@ -196,10 +300,10 @@
 
 .folder_barbtn .expand.full {
     position: relative;
-    width: 8px;
-    height: 8px;
-    border: 1px solid var(--aero-text-color);
-    border-top: 2px solid var(--aero-text-color);
+    width: 7px;
+    height: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    border-top: 2px solid rgba(0, 0, 0, 0.60);
     box-shadow: none;
     margin: 0 auto;
     top: 1px;
@@ -211,10 +315,10 @@
 
 .folder_barbtn .expand_2 {
     position: relative;
-    width: 8px;
-    height: 8px;
-    border: 1px solid var(--aero-text-color);
-    border-top: 2px solid var(--aero-text-color);
+    width: 7px;
+    height: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    border-top: 2px solid rgba(0, 0, 0, 0.60);
     box-shadow: none;
     margin: 0 auto;
     bottom: 5px;
@@ -223,29 +327,56 @@
     border-radius: 1px;
 }
 
+
+/* ----------- Menu Bar (File, Edit, View, Help) ----------- */
+
 .folder_folder .file_edit_container {
     display: flex;
-    gap: 5px;
-    font-size: 12.5px;
-    padding-left: 10px;
-    padding-top: 4px;
+    gap: 2px;
+    font-size: 12px;
+    padding: 2px 4px;
     cursor: default;
-    color: var(--aero-text-color);
+    color: rgba(0, 0, 0, 0.75);
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.20) 0%, 
+        rgba(230, 240, 250, 0.12) 100%
+    );
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.folder_folder .file_edit_container p {
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: background 0.1s ease;
+}
+
+.folder_folder .file_edit_container p:hover {
+    background: rgba(100, 160, 240, 0.18);
 }
 
 .file_edit_container span {
     position: relative;
 }
 
+
+/* ----------- Folder Content Area ----------- */
+
 .folder_folder .folder_content {
     position: relative;
-    width: calc(100% - 8px);
-    height: calc(100% - 82px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: var(--aero-radius-sm);
-    margin: 0 auto;
-    margin-top: 3px;
-    background: rgba(255, 255, 255, 0.7);
+    width: calc(100% - 6px);
+    height: calc(100% - 78px);
+    border: 1px solid rgba(120, 160, 220, 0.25);
+    border-radius: 4px;
+    margin: 2px auto;
+    /* Crisp white content area with subtle glass */
+    background: 
+        linear-gradient(180deg, 
+            rgba(255, 255, 255, 0.88) 0%, 
+            rgba(248, 252, 255, 0.85) 100%
+        );
+    box-shadow: 
+        inset 0 1px 3px rgba(0, 0, 0, 0.06),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 
@@ -260,8 +391,8 @@
     width: fit-content;
     position: relative;
     flex-wrap: wrap;
-    gap: 5px;
-    padding: 8px 4px;
+    gap: 6px;
+    padding: 8px 6px;
 }
 
 
@@ -270,12 +401,17 @@
 }
 
 .item_container img {
-    width: 62px;
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+    width: 48px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.18));
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: filter 0.15s ease;
+}
+
+.item_container img:hover {
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.28));
 }
 
 
@@ -284,42 +420,51 @@
 }
 
 .item_container .item_1_p_focus {
-    background: var(--aero-focus-bg);
-    border: 1px solid rgba(60, 120, 210, 0.5);
+    background: rgba(60, 130, 230, 0.25);
+    border: 1px solid rgba(60, 130, 230, 0.45);
     border-radius: 3px;
-    color: white;
-    padding: 0 3px;
+    color: #111;
+    padding: 0 4px;
 }
 
 
+/* ----------- Status Bar ----------- */
 
 .folder_folder .btm_bar_container {
     display: flex;
-    gap: 5px;
-    width: calc(100% - 8px);
+    gap: 4px;
+    width: calc(100% - 6px);
     justify-content: space-between;
-    margin: 0 auto;
-    margin-top: 4px;
+    margin: 2px auto;
     cursor: default;
-} 
+}
 
 .btm_bar_container .object_bar {
     width: 80%;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(120, 160, 220, 0.18);
     border-radius: 3px;
-    background: rgba(255, 255, 255, 0.3);
+    background: 
+        linear-gradient(180deg, 
+            rgba(240, 245, 255, 0.50) 0%, 
+            rgba(225, 235, 250, 0.40) 100%
+        );
 }
+
 .btm_bar_container .size_bar {
     width: 55%;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(120, 160, 220, 0.18);
     border-radius: 3px;
-    background: rgba(255, 255, 255, 0.3);
+    background: 
+        linear-gradient(180deg, 
+            rgba(240, 245, 255, 0.50) 0%, 
+            rgba(225, 235, 250, 0.40) 100%
+        );
 }
 
 .btm_bar_container p {
     position: relative;
-    font-size: 11.5px;
+    font-size: 11px;
     padding-top: 2px;
-    margin-left: 4px;
-    color: var(--aero-text-color);
+    margin-left: 5px;
+    color: rgba(0, 0, 0, 0.65);
 }
