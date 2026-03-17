@@ -148,7 +148,16 @@ function App() {
   const [dropTargetFolder, setDropTargetFolder] = useState(null);
   const [reMountRun, setReMountRun] = useState(0)
   const [ErrorPopup, setErrorPopup] = useState(false)
-  const [themeDragBar, setThemeDragBar] = useState(() => localStorage.getItem('barcolor') || '#14045c')
+  const aeroGradientDefault = 'linear-gradient(180deg, rgba(80, 130, 200, 0.55) 0%, rgba(50, 100, 170, 0.45) 40%, rgba(30, 75, 145, 0.40) 50%, rgba(40, 85, 155, 0.50) 100%)';
+  const [themeDragBar, setThemeDragBar] = useState(() => {
+    const stored = localStorage.getItem('barcolor');
+    // Migrate old opaque hex colors to translucent gradient
+    if (stored && stored.startsWith('#') && stored.length <= 9) {
+      localStorage.removeItem('barcolor');
+      return aeroGradientDefault;
+    }
+    return stored || aeroGradientDefault;
+  })
   const [login, setLogin] = useState(false) 
   const [windowsShutDownAnimation, setWindowsShutDownAnimation] = useState(false)
   const [detectMouse, setDetectMouse] = useState(false)
@@ -1888,14 +1897,16 @@ function handleShowMobile(name) {
       return {
         display: item.usestate.show ? 'block' : '',
         maxWidth: 'none',
-        width: '100%',
-        height: 'calc(100% - 37px)',
-        left: `${item.usestate.x <= 0 ? Math.abs(item.usestate.x) * 2 + item.usestate.x : -item.usestate.x}px`,
-        top: `${item.usestate.y <= 0 ? Math.abs(item.usestate.y) * 2 + item.usestate.y : -item.usestate.y}px`,
+        width: '100vw',
+        height: 'calc(100vh - 40px)', /* Account for taskbar height */
+        left: `${item.usestate.x <= 0 ? Math.abs(item.usestate.x) + item.usestate.x : -item.usestate.x}px`,
+        top: `${item.usestate.y <= 0 ? Math.abs(item.usestate.y) + item.usestate.y : -item.usestate.y}px`,
         opacity: item.usestate.hide ? '0' : '1',
         zIndex: item.usestate.hide ? '-1' : (item.usestate.focusItem ? '999' : item.usestate.zIndex),
         pointerEvents: item.usestate.hide ? 'none' : 'auto',
-        resize: item.usestate.expand ? 'none' : ''
+        resize: item.usestate.expand ? 'none' : '',
+        borderRadius: 0, /* Maximize removes corner rounding */
+        boxShadow: 'none' /* Simplify shadow when maximized */
       };
     }
     return {};

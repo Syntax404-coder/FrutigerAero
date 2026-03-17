@@ -6,42 +6,74 @@
     width: 420px;
     height: 475px;
     min-height: 320px;
-    background: #c5c4c4;
-    border: 2px solid white;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    outline: 1px solid white;
+    background: 
+        linear-gradient(180deg, 
+            rgba(200, 220, 240, 0.22) 0%, 
+            rgba(160, 190, 220, 0.18) 3%, 
+            rgba(120, 160, 200, 0.12) 10%, 
+            rgba(80, 120, 180, 0.10) 50%, 
+            rgba(60, 100, 160, 0.14) 100%
+        );
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    border: 1px solid rgba(120, 180, 255, 0.35);
+    border-top: 1px solid rgba(200, 230, 255, 0.6);
+    border-radius: 8px;
+    box-shadow: 
+        0 12px 48px rgba(0, 0, 0, 0.45),
+        0 4px 16px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 1px 0 0 rgba(255, 255, 255, 0.25),
+        inset -1px 0 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15);
     overflow: hidden;
     resize: none;
+    animation: windowOpen 0.25s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 
 .bgsetting_folder .folder_dragbar_bgsetting {
    display: flex;
    position: relative;
-   height: 24px;
+   height: 30px;
    width: 100%;
    margin-bottom: 1px;
+   background: 
+       linear-gradient(180deg, 
+           rgba(180, 210, 240, 0.45) 0%,
+           rgba(140, 180, 220, 0.35) 40%,
+           rgba(100, 150, 200, 0.25) 50%,
+           rgba(120, 160, 210, 0.30) 100%
+       );
+   border-radius: 7px 7px 0 0;
    align-items: center;
    justify-content: space-between;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+   box-shadow: 
+       inset 0 1px 0 rgba(255, 255, 255, 0.65),
+       inset 0 -1px 0 rgba(0, 0, 0, 0.05);
    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   transition: background 0.2s ease;
 }
 
 .bgsetting_barname img {
     position: relative;
     width: 16px;
-    top: 3px;
-    margin-left: 5px;
+    top: 0px;
+    margin-left: 8px;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .bgsetting_barname span {
     position: relative;
-    font-size: 15px;
-    color: white;
-    margin-left: 5px;
+    font-size: 12px;
+    color: #111;
+    margin-left: 6px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.2px;
 }
 
 .bgsetting_folder .bgsetting_barbtn {
@@ -51,27 +83,97 @@
     gap: 2px;
 }
 
+/* Individual window button base - Authentic Vista (nearly invisible default) */
 .bgsetting_barbtn div {
-    width: 17px;
-    height: 17px;
-    background: #c9c9c9;
-    font-weight: bold;
-    border: 1px solid black;
-    border-top-color: rgb(198, 198, 198);border-left-color: rgb(198, 198, 198);
-    box-shadow: inset 1px 1px #ffffff, 1px 1px #000000dd;
-    cursor: default;
+    width: 26px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.05); /* Barely visible Base */
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease-out;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15); /* Subtle inner edge */
+    font-weight: normal;
+    font-size: 11px;
+    color: #111;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Authentic Vista Hover - Blue Glowing Aura */
+.bgsetting_barbtn div:hover {
+    background: 
+        radial-gradient(ellipse at center bottom, rgba(160, 220, 255, 0.8) 0%, transparent 70%),
+        linear-gradient(180deg, 
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(200, 225, 255, 0.3) 45%,
+            rgba(150, 200, 255, 0.2) 50%,
+            rgba(180, 215, 255, 0.4) 100%
+        );
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.9),
+        0 0 8px rgba(160, 210, 255, 0.6), /* The Aura */
+        0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .bgsetting_barbtn div:not(.expand):active {
-    border-top-color: black;border-left-color: black;
-    border-bottom-color: white;border-right-color: white;
+    background: rgba(160, 190, 220, 0.7);
+    border: 1px solid rgba(140, 170, 200, 0.9);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    transform: none;
 }
 
+/* Close button - Red Aero gradient with glowing aura */
 .bgsetting_barbtn .x {
     position: relative;
     text-align: center;
-    font-size: 18px;
-    bottom: 5px;
+    font-size: 14px;
+    bottom: 0;
+    line-height: 18px;
+    color: #fff;
+    /* Vista close button is slightly red even when inactive */
+    background: 
+        linear-gradient(180deg, 
+            rgba(220, 100, 100, 0.45) 0%,
+            rgba(180, 60, 60, 0.35) 45%,
+            rgba(150, 40, 40, 0.30) 50%,
+            rgba(170, 50, 50, 0.40) 100%
+        );
+    border: 1px solid rgba(200, 80, 80, 0.4);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    border-top-right-radius: 4px; /* Match container border-radius */
+    border-bottom-right-radius: 4px; /* Vista puts close button edge right against the window border */
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(255, 180, 180, 0.3);
+    /* Make sure the div fills the cell */
+    width: 32px !important; /* Slightly wider close button per Vista spec */
+    margin-right: -1px; /* Push to the absolute edge */
+}
+
+.bgsetting_barbtn .x:hover {
+    background: 
+        radial-gradient(ellipse at center bottom, rgba(255, 120, 120, 0.95) 0%, transparent 75%),
+        linear-gradient(180deg, 
+            rgba(255, 160, 160, 0.85) 0%,
+            rgba(230, 80, 80, 0.80) 45%,
+            rgba(200, 40, 40, 0.75) 50%,
+            rgba(220, 60, 60, 0.85) 100%
+        );
+    border: 1px solid rgba(255, 180, 180, 0.8);
+    box-shadow: 
+        inset 0 1px 2px rgba(255, 220, 220, 0.9),
+        0 0 10px rgba(255, 60, 60, 0.7); /* The Red Aura */
+}
+
+.bgsetting_barbtn .x:active {
+    background: rgba(180, 30, 20, 0.9);
+    border: 1px solid rgba(140, 20, 10, 0.9);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 /* support only safari */
@@ -84,10 +186,10 @@
 
 .bgsetting_barbtn .dash {
     position: relative;
-    width: 8px;
-    top: 11px;
+    width: 10px;
+    top: 0;
     margin: 0 auto;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.65);
 }
 .bgsetting_barbtn .expand {
     position: relative;
@@ -141,7 +243,7 @@
     padding-top: 1px;
     bottom: 1px;
     font-size: 12px;
-    background: #c5c4c4;
+    background: rgba(255, 255, 255, 0.80);
     border: 2px solid black;
     border-top-color: #f0efef;
     border-left-color: #f0efef;
@@ -193,7 +295,7 @@
     border-left-color: #f0efef;
     margin: 0 auto;
     margin-top: 0;
-    background: #c5c4c4;
+    background: rgba(255, 255, 255, 0.80);
     overflow: hidden;
     word-break: break-word;
 }
@@ -362,9 +464,11 @@
     position: absolute;
     top: -10px;
     left: 5px;
-    background: #c5c4c4;
-    padding: 0px 2px;
+    background: rgba(200, 220, 240, 0.60);
+    backdrop-filter: blur(8px);
+    padding: 0px 4px;
     font-size: 13px;
+    border-radius: 3px;
 }
 
 .tile_mode_container p {

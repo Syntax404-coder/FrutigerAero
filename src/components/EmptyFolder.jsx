@@ -90,7 +90,7 @@ function EmptyFolder({state, setState, refState, folderName, photoMode, paintMod
   }
 
   const parentItemContainerStyle = {
-    background: '#c5c4c4',
+    background: 'rgba(255, 255, 255, 0.85)',
     padding: '0',
     display: 'flex',
     justifyContent: 'center',
